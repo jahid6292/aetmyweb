@@ -36,7 +36,7 @@ function loadcampsubT(){
 
     $("#load-table").html("");
     $.ajax({
-      url : 'http://aetmyweb.duckdns.org/php-rest-api/php-rest-api/loadcampsub.php',
+      url : 'https://aetmyweb.duckdns.org/php-rest-api/php-rest-api/loadcampsub.php',
       type : "GET",
       success : function(data){
 
@@ -62,7 +62,7 @@ loadcampsubT();
 
     $("#load-table").html("");
     $.ajax({
-      url : 'http://aetmyweb.duckdns.org/php-rest-api/php-rest-api/api-fetch-all.php',
+      url : 'https://aetmyweb.duckdns.org/php-rest-api/php-rest-api/api-fetch-all.php',
       type : "GET",
       success : function(data){
 
@@ -139,7 +139,7 @@ loadcampsubT();
       message("All Fields are required.",false);
     }else{
       $.ajax({
-      url : 'http://aetmyweb.duckdns.org/php-rest-api/php-rest-api/api-insert.php',
+      url : 'https://aetmyweb.duckdns.org/php-rest-api/php-rest-api/api-insert.php',
       type : "POST",
       data : jsonObj,
       success : function(data){
@@ -164,7 +164,7 @@ loadcampsubT();
       var row = this;
 
       $.ajax({
-      url : 'http://aetmyweb.duckdns.org/php-rest-api/php-rest-api/api-delete.php',
+      url : 'https://aetmyweb.duckdns.org/php-rest-api/php-rest-api/api-delete.php',
       type : "POST",
       data : myJSON,
       success : function(data){
@@ -186,7 +186,7 @@ loadcampsubT();
     var myJSON = JSON.stringify(obj);
 
     $.ajax({
-      url : '//aetmyweb.duckdns.org/php-rest-api/php-rest-api/api-fetch-single.php',
+      url : 'https://aetmyweb.duckdns.org/php-rest-api/php-rest-api/api-fetch-single.php',
       type : "POST",
       data : myJSON,
       success : function(data){
@@ -214,7 +214,7 @@ loadcampsubT();
       message("All Fields are required.",false);
     }else{
       $.ajax({
-      url : 'http://aetmyweb.duckdns.org/php-rest-api/php-rest-api/api-update.php',
+      url : 'https://aetmyweb.duckdns.org/php-rest-api/php-rest-api/api-update.php',
       type : "POST",
       data : jsonObj,
       success : function(data){
@@ -236,7 +236,7 @@ loadcampsubT();
     $("#load-table").html("");
 
     $.ajax({
-      url : 'http://aetmyweb.duckdns.org/php-rest-api/php-rest-api/api-search.php?search=' + search_term,
+      url : 'https://aetmyweb.duckdns.org/php-rest-api/php-rest-api/api-search.php?search=' + search_term,
       type : "GET",
       success : function(data){
        if(data.status == false){
