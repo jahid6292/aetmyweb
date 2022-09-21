@@ -186,7 +186,7 @@ loadcampsubT();
     var myJSON = JSON.stringify(obj);
 
     $.ajax({
-      url : 'http://aetmyweb.duckdns.org/php-rest-api/php-rest-api/api-fetch-single.php',
+      url : '//aetmyweb.duckdns.org/php-rest-api/php-rest-api/api-fetch-single.php',
       type : "POST",
       data : myJSON,
       success : function(data){
