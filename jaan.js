@@ -12,7 +12,7 @@ function loadcampT(){
 
     $("#load-table").html("");
     $.ajax({
-      url : 'http://aetmyweb.duckdns.org/php-rest-api/php-rest-api/loadcamptype.php',
+      url : '//aetmyweb.duckdns.org/php-rest-api/php-rest-api/loadcamptype.php',
       type : "GET",
       success : function(data){
 
