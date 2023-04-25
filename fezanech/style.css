@@ -1774,7 +1774,34 @@ span.psw {
   opacity: 1;
 
 }
+#image30{
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-image: url("https://jahid6292.github.io/aetmyweb/fezanech/makhariz/9992yaa(gairmadda).png");
+  background-repeat: no-repeat;
+  background-size: auto;
+  background-size:  cover;
+  object-fit: contain;
+  /* width: 150px;
+  height: 150px; */
+  /* transform: rotate(0deg); */
+  transition: all ease 0.9s;
+}
 
+.thstyle:hover #image30{
+  font-size: 20px;
+  color:white;
+  width: 150px;
+  height: 150px;
+  transform-origin: top center;
+  /* transform: perspective(800px) rotateY(10deg) translate3d(0px, -50px, 5px); */
+  transform: perspective(800px) scale(1.5) rotate(180deg);
+  box-shadow: 0 .4rem 1.5rem rgba(0,0,0,.5);
+  border-radius: 10%;
+  opacity: 1;
+
+}
 
 .tahajji1{
   background-color: var(--tahjji-one);
