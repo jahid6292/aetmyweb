@@ -39,7 +39,7 @@
                                           "<h2>"+s[i][2]+"</h2>"+
                                           "<p>"+s[i][4]+"</p>"+
                                           "<div class='content'>"+
-                                          "<img class='responsive' src='images/comonavatar1.png' alt=''>"+
+                                          "<img class='responsive' src='https://jahid6292.github.io/aetmyweb/fezanech/comonavatar1.png' alt=''>"+
                                           "</div>"+
                                           "</div>";
                     target.insertAdjacentHTML("beforeend", team);
