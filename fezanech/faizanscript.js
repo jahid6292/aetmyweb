@@ -132,9 +132,9 @@
 
         function myFunction(x) {
           if (x.matches) { // If media query matches
-            marques.setAttribute("direction", "down");
+            marques.setAttribute("direction", "up");
             marques.removeAttribute("behavior");
-            stmarques.setAttribute("direction", "down");
+            stmarques.setAttribute("direction", "up");
             stfpanel.style.height ="400px";
             stfpanel.style.overflow = "scroll";
             stmarques.style.height ="800px";
