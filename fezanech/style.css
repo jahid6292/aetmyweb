@@ -1,0 +1,2015 @@
+:root{
+  --main-color: #10ac84;
+  --sec-color: green;
+  --tahjji-one : #f7d794;
+  --tahjji-two : #00d2d3;
+  --tahjjiback :#c8d6e5;
+  --heading-two :#156223;
+
+}
+body{
+    margin:0px;
+    padding: 0px;
+    font-family: calibri;
+}
+*{
+    box-sizing: border-box;
+}
+ul{
+    list-style: none;
+}
+a{
+    text-decoration: none;
+}
+button{
+    outline: none;
+    border: none;
+}
+input{
+    outline: none;
+    border: none;
+}
+.main{
+
+    width:100%;
+    height:768px;
+    position: relative;
+}
+.logo img{
+    height: 30px;
+        width: 50px;
+}
+nav{
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    padding: 0px 30px;
+    background-color:#fff;
+    box-shadow: 2px 2px 20px rgba(255, 151, 103, 0.164);
+    z-index: 1;
+    width:100%;
+    position: fixed;
+    left: 0px;
+    top: 0px;
+   margin-top: 2.5rem;
+}
+nav ul{
+    display: flex;
+    margin:0px;
+    padding: 0px;
+}
+nav ul li a{
+    height:40px;
+    line-height: 43px;
+    margin: 8px;
+    padding: 0px 10px;
+    display: flex;
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    font-weight: 400;
+    color:#111;
+    letter-spacing: 1px;
+    transition: 0.4s ease-in-out;
+}
+.active{
+    background-color: #F14D5D;
+    color: #fff;
+}
+nav ul li a:hover{
+    border-radius: 5px;
+    background-color: #F14D5D;
+    color:#fff;
+    box-shadow: 5px 10px 30px rgba(219, 74, 6, 0.5);
+    transition: all ease 0.2s;
+}
+.home-content{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    position: absolute;
+    left: 50%;
+    top:50%;
+    transform: translate(-50%,-50%);
+    width:90%;
+
+}
+.home-img{
+    width:500px;
+    height:400px;
+    margin:20px;
+}
+.home-img img{
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    object-position: center;
+}
+.home-text{
+    width:500px;
+    margin: 20px;
+}
+.home-text h1{
+    font-size: 3.5rem;
+    line-height: 55px;
+    color:#22252e;
+    letter-spacing: 1px;
+    font-weight: 700;
+    margin: 0px;
+}
+.home-text p{
+    font-size: 1rem;
+    color:#777474;
+}
+.home-text span{
+    color: #F14D5D;
+    text-decoration: underline;
+}
+.main-login{
+    width:120px;
+    height:40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #F14D5D;
+    color:#fff;
+    box-shadow: 5px 10px 30px rgba(219, 74, 6, 0.5);
+    text-transform: uppercase;
+    transition: 0.3s ease-in-out;
+}
+.main-login:hover{
+    background-color: #F14D5D;
+    transition: all ease 0.3s;
+}
+.arrow{
+    align-self: end;
+    width:50%;
+    border-right: 1px solid #F14D5D;
+    height: 20%;
+    margin-bottom:20em ;
+    position: absolute;
+    bottom: 5px;
+    right: 70px;
+    animation: arrow-animation ease 1.5s;
+
+}
+.arrow::after{
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 0;
+    border-style: solid;
+    border-width: 11px 11px 0px 11px;
+    border-color: #F14D5D transparent transparent transparent;
+    right: -0.7em;
+    bottom: -2px;
+}
+.scroll{
+    position: absolute;
+    bottom: 260px;
+    right:55px;
+    font-weight: 600;
+}
+@keyframes arrow-animation{
+    0%{
+        bottom: 70px;
+        opacity: 0.2;
+    }
+    100%{
+        bottom: 5px;
+        opacity: 1;
+    }
+}
+.services{
+    background-size: 1000px;
+    background-position: center;
+}
+.services-heading{
+    margin-top: 60px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    flex-direction: column;
+}
+.services-heading h2{
+    line-height: 55px;
+    font-size: 2.2rem;
+    color:var(--heading-two);
+    letter-spacing: 1px;
+    font-weight: 700;
+    margin: 0px;
+}
+.services-heading p{
+    font-size: 1rem;
+    color:#777474;
+    width:50%;
+}
+.box-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    margin: 20px 30px;
+}
+.box{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width:300px;
+    height: 400px;
+    text-align: center;
+    box-shadow: 2px 2px 20px rgba(90,118,253,0.15);
+    border-radius: 10px;
+    background-color: #fff;
+    margin: 20px;
+    flex-grow: 1;
+}
+.box img{
+    height:200px;
+    margin:10px;
+
+}
+.box font{
+    font-size: 1.5rem;
+    color: #22252e;
+    letter-spacing: 1px;
+    font-weight: 700;
+}
+.box p{
+    font-size: 1rem;
+    color: #777474;
+    display: block;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 500px;
+}
+.box a{
+    width:150px;
+    height:40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 2px solid #5a76fd;
+    text-transform: uppercase;
+    margin: auto;
+    border-radius: 5px;
+    font-weight: 600;
+    font-size: 0.9rem;
+    color:#5a76fd;
+    margin:0px;
+}
+.box a:hover{
+    background-color: #5a76fd;
+    color:#fff;
+    box-shadow: 5px 10px 30px rgba(90,118,253,0.5);
+    transition: all ease 0.3s;
+}
+
+.box{
+    width:200px;
+    height: 400px;
+    background-color: #ffffff;
+    box-shadow: 2px 2px 30px rgba(0,0,0,0.05);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px;
+    border-radius: 10px;
+    margin: 20px;
+    position: relative;
+}
+.about{
+
+    width:100%;
+    height:768px;
+    position: relative;
+}
+.about-content{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    position: absolute;
+    left: 50%;
+    top:50%;
+    transform: translate(-50%,-50%);
+    width:90%;
+
+}
+.about-img{
+    width:500px;
+    height:400px;
+    margin:20px;
+}
+.about-img img{
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    object-position: center;
+}
+.about-text{
+    width:500px;
+    margin: 20px;
+}
+.about-text h1{
+    font-size: 3.5rem;
+    line-height: 55px;
+    color:#22252e;
+    letter-spacing: 1px;
+    font-weight: 700;
+    margin: 0px;
+}
+.about-text p{
+    font-size: 1rem;
+    color:#777474;
+}
+.about-text span{
+    color: #F14D5D;
+    text-decoration: underline;
+}
+.about-login{
+    width:120px;
+    height:40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #f54417;
+    color:#fff;
+    box-shadow: 5px 10px 30px rgba(219, 74, 6, 0.5);
+    text-transform: uppercase;
+    transition: 0.3s ease-in-out;
+}
+.about-login:hover{
+    background-color: #F14D5D;
+    transition: all ease 0.3s;
+}
+.section-5-text{
+    text-align: center;
+    padding-bottom: 40px;
+}
+.section-5-text h1{
+    font-family: Roboto;
+font-style: normal;
+font-weight: bold;
+font-size: 2.5rem;
+line-height: 47px;
+color: #000000;
+}
+.section-5-text p{
+    font-family: Roboto;
+font-style: normal;
+font-weight: normal;
+font-size: 1rem;
+line-height: 21px;
+color: #545454;
+}
+.section-5-text-btn{
+    margin-top: 90px;
+    margin-bottom: 60px;
+}
+.section-5-text-btn input{
+    width: 30%;
+height: 53px;
+border: none;
+outline: none;
+font-size:20px;
+background: #F3F3F3;
+box-shadow: 5px 10px 30px rgba(219, 74, 6, 0.5);
+padding-left: 20px;
+}
+.section-5-text-btn button{
+    background: #fd0000;
+    width: 221px;
+height: 53px;
+margin-left: 15px;
+font-family: Roboto;
+font-style: normal;
+font-weight: normal;
+font-size: 18px;
+line-height: 21px;
+text-align: center;
+
+color: #FFFFFF;
+}
+footer{
+    width:100%;
+    text-align: center;
+    padding: 0px 5%;
+    border-top: 1px solid rgba(231, 9, 9, 0.2);
+}
+footer a,
+footer p{
+    color:#000000;
+}
+nav .menu-btn{
+    display: none;
+}
+@media(max-width:1100px){
+    nav{
+        justify-content: space-between;
+        height: 65px;
+    }
+    .menu{
+        display: none;
+        position: absolute;
+        top: 65px;
+        left: 0px;
+        background-color: #fff;
+        border-bottom: 4px solid #F14D5D;
+        width:100%;
+    }
+    .menu li{
+        width:100%;
+    }
+    nav .menu li a{
+        width:100%;
+        height: 40px;
+        justify-content: center;
+        align-items: center;
+        margin:0px;
+        padding: 25px;
+        border:1px solid rgba(38,38,38,0.03);
+    }
+    nav .menu-icon{
+        cursor: pointer;
+        float: right;
+        padding: 28px 20px;
+        position: relative;
+        user-select: none;
+    }
+    nav .menu-icon .nav-icon{
+        background-color: #333333;
+        display: block;
+        height: 2px;
+        position: relative;
+        transition: background 0.2s ease-out;
+        width:18px;
+    }
+    nav .menu-icon .nav-icon:before,
+    nav .menu-icon .nav-icon:after{
+        background: #333333;
+        content: '';
+        display: block;
+        height: 100%;
+        position: absolute;
+        transition: all ease-out 0.2s;
+        width:100%;
+    }
+    nav .menu-icon .nav-icon:before{
+        top: 5px;
+    }
+    nav .menu-icon .nav-icon:after{
+        top:-5px;
+    }
+    nav .menu-btn:checked ~ .menu-icon .nav-icon{
+        background: transparent;
+    }
+    nav .menu-btn:checked ~ .menu-icon .nav-icon:before{
+        transform: rotate(-45deg);
+        top: 0;
+    }
+    nav .menu-btn:checked ~ .menu-icon .nav-icon:after{
+        transform: rotate(45deg);
+        top: 0;
+    }
+    nav .menu-btn{
+        display: none;
+    }
+    nav .menu-btn:checked ~ .menu{
+        display: block;
+    }
+    .home-img{
+        display: none;
+    }
+    .home-text{
+        width:100%;
+        justify-content: center;
+        align-items: center;
+        display: flex;
+        flex-direction: column;
+        height: 45vh;
+        margin: 0px;
+    }
+    .home-content{
+        text-align: center;
+        width:100%;
+        margin:0px;
+        position: static;
+        transform: translate(0px,70px);
+        box-shadow: 2px 2px 30px rgba(255, 102, 55, 0.178);
+    }
+    .home-text h1{
+        color:rgb(0, 0, 0);
+        padding: 0px 20px;
+        font-size: 2.5rem;
+    }
+    .home-text p{
+        color:rgba(32, 32, 32, 0.85);
+        margin: 10px 0px 20px 0px;
+        width:50%;
+    }
+
+    .about-img{
+        display: none;
+    }
+    .about-text{
+        width:100%;
+        justify-content: center;
+        align-items: center;
+        display: flex;
+        flex-direction: column;
+        height: 45vh;
+        margin: 0px;
+    }
+    .about-content{
+        text-align: center;
+        width:100%;
+        margin:0px;
+        position: static;
+        transform: translate(0px,70px);
+        box-shadow: 2px 2px 30px rgba(255, 102, 55, 0.178);
+    }
+    .about-text h1{
+        color:rgb(0, 0, 0);
+        padding: 0px 20px;
+        font-size: 2.5rem;
+    }
+    .about-text p{
+        color:rgba(32, 32, 32, 0.85);
+        margin: 10px 0px 20px 0px;
+        width:50%;
+    }
+
+    .arrow{
+        height: 70px;
+    }
+
+   .main{
+
+        padding: 75px 0px 0px 0;
+        background: url('images/hero-bg.png') no-repeat center center;
+        background-size: cover;
+        height: 900px;
+   }.arrow{
+       left: 2%;
+       margin-bottom: 15em;
+   }.scroll{
+       left: 48%;
+       bottom: 200px;
+   }
+}
+@media(max-width:720px){
+    .home-text p{
+        width:70%;
+        text-align: center;
+    }
+    .home-content h1{
+        font-size: 1.9rem;
+        padding: 10px 10px;
+        line-height: 30px;
+    }
+    .about-text p{
+        width:70%;
+        text-align: center;
+    }
+    .about-content h1{
+        font-size: 1.9rem;
+        padding: 10px 10px;
+        line-height: 30px;
+    }
+    .services{
+        margin-top: 20px;
+    }
+    .services-heading{
+        margin:20px;
+
+    }
+    .services-heading h2{
+        font-size: 1.7rem;
+        line-height: 40px;
+    }
+    .services-heading p{
+        width:100%;
+    }
+    .box{
+        width:100%;
+        margin: 20px 0px !important;
+        padding: 0px 20px;
+        flex-grow: 1;
+    }
+    .box img{
+        height: 100px;
+        width:100%;
+        object-fit: contain;
+    }
+    .section-5-text{
+        margin-top: -250px;
+    }
+    .section-5-text-btn input{
+        width: 80%;
+    }
+    .section-5-text-btn button{
+        margin-top:20px;
+    }
+    footer p,a{
+        font-size: 0.9rem;
+        text-align: center;
+    }
+    footer{
+        padding: 0px 10px;
+    }
+    .services .students-panel .students {
+      display: block;
+      margin: 0 auto;
+      margin-bottom: 25px;
+      width: 250px;
+      height: 320px;
+      border: 2px solid green;
+      cursor: pointer;
+      overflow: hidden;
+      position: relative;
+    }
+    /* #comPanels{
+      display: block;
+    } */
+
+
+}
+/* second css*/
+/* Full-width input fields */
+input[type=text], input[type=password] {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  box-sizing: border-box;
+}
+
+/* Set a style for all buttons */
+button {
+  background-color: #04AA6D;
+  color: white;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+}
+
+button:hover {
+  opacity: 0.8;
+}
+
+/* Extra styles for the cancel button */
+.cancelbtn {
+  width: auto;
+  padding: 10px 18px;
+  background-color: #f44336;
+}
+
+/* Center the image and position the close button */
+.imgcontainer {
+  text-align: center;
+  margin: 24px 0 12px 0;
+  position: relative;
+}
+.students-panel{
+  margin-top: 20px;
+  width: auto;
+  height: auto;
+  border: 4px solid green;
+  box-shadow: 0 0.4rem 1.5rem rgba(0,0,0,.5);
+
+}
+.students{
+  margin-top: 5px;
+  width: 250px;
+  height: 320px;
+  border: 2px solid green;
+  cursor: pointer;
+  display: inline-block;
+  margin-right: 10px;
+  border-radius: 5px;
+  margin-bottom: 0px;
+  overflow: hidden;
+  position: relative;
+  text-align: center;
+  padding-top: 10px;
+}
+
+.content{
+  background: rgba(0, 0, 0, 0.8);
+  position: absolute;
+  top: -100%;
+  height: 100%;
+  width: 100%;
+  color: #fff;
+  padding: 20px;
+  left: 0;
+  transition: all 0.5s;
+  text-align: center;
+  border: 8px solid white;
+  border-radius: 8%;
+}
+.students:hover .content{
+  transform: perspective(800px) scale(0.9);
+  top: 0;
+}
+.students-panel-fulldetails{
+  display: block;
+  text-align: center;
+  border: 10px solid #10ac84;
+  height: 450px;
+  width: 100%;
+  padding-left: 20px;
+  padding-right: 20px;
+  overflow: scroll;
+  white-space: nowrap;
+  position: relative;
+  box-shadow: 0 0.4rem 1.5rem rgba(0,0,0,.9);
+}
+.students-panel-fulldetails .ttbale{
+  display: table;
+  margin: auto;
+  width: 100%;
+  text-align: center;
+  overflow: scroll;
+  white-space: nowrap;
+}
+.students-panel-fulldetails .navst{
+      width: auto;
+      height: 60px;
+      background: green;
+      z-index: 1;
+      top: 0px;
+      left: 0px;
+      margin: 0;
+      padding: 5px 5px 5px 5px;
+      position: sticky;
+      color: white;
+      font-style: bold;
+      text-align: left;
+}
+
+.contentfulldetails{
+  position: relative;
+  display: block;
+  border: 2px solid grey;
+  padding: 10px 10px;
+  transition: all 2s;
+  width: 100%;
+  background: #1dd1a1;
+  display:block;
+  margin:0 auto;
+  margin-bottom: 20px;
+  text-align: center;
+  font-size: auto;
+  box-shadow: 0 0.3rem 0.4rem rgba(0,0,0,.3);
+}
+.students-panel-fulldetails .contentfulldetails .studentphoto{
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  /* animation: studenanimatefulldetails 7s 7s alternate; */
+  text-align: center;
+  transition: all 2s;
+
+}
+.students-panel-fulldetails .contentfulldetails table, td{
+  width: 650px;
+ height: auto;
+ text-align: left;
+}
+.students-panel-fulldetails .contentfulldetails:hover .studentphoto{
+ opacity: 0.6;
+ font-size: 12px;
+ font-family: roboto;
+ font-style: bold;
+ text-align: center;
+ background: white;
+ color: green;
+ transform: perspective(800px) scale(0.95) rotateX(360deg) ;
+ border: 5px solid var(--sec-color);
+ overflow: hidden;
+ /* animation: studenanimatefulldetails 2s infinite alternate; */
+}
+@keyframes studenanimatefulldetails {
+  0%{transform: perspective(800px) rotateX(20deg);,background: yellow;, opacity: 1;}
+  50%{transform: perspective(800px) rotateX(0deg);,background: white;, opacity: 1;}
+  100%{transform: perspective(800px) rotateX(-20deg);background: green;, opacity: 1;}
+}
+#closeP{
+  text-align: right;
+}
+
+.responsive {
+  width: 100%;
+  height: auto;
+  background-size: cover;
+}
+#memtitle{
+  text-align: center;
+  margin: 0px;
+  padding: 0px;
+  background: green;
+  border-radius: 10px;
+  font-size: 25px;
+  font-family: roboto;
+  color: white;
+  box-shadow: 5px 10px #888888;
+  margin-bottom: 5px;
+}
+#post{
+  font-size: 18px;
+  text-align: center;
+  color: red;
+  font-style: bold;
+}
+#sptitle{
+  color: black;
+  font-family: roboto;
+  font-size: 25px;
+  text-align: center;
+}
+#admin{
+  display: none;
+}
+#panSt{
+  display: block;
+}
+img.avatar {
+  width: 40%;
+  border-radius: 50%;
+}
+
+.container {
+  padding: 16px;
+}
+
+span.psw {
+  float: right;
+  padding-top: 16px;
+}
+
+/* The Modal (background) */
+.modal {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0,0,0); /* Fallback color */
+  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+  padding-top: 60px;
+}
+
+/* Modal Content/Box */
+.modal-content {
+  width: 400px;
+  background-color: #fefefe;
+  margin: 5% auto 15% auto; /* 5% from the top, 15% from the bottom and centered */
+  border: 1px solid #888;
+  width: 80%; /* Could be more or less, depending on screen size */
+}
+
+/* The Close Button (x) */
+.close {
+  position: absolute;
+  right: 25px;
+  top: 0;
+  color: #000;
+  font-size: 35px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: red;
+  cursor: pointer;
+}
+
+/* Add Zoom Animation */
+.animate {
+  -webkit-animation: animatezoom 0.6s;
+  animation: animatezoom 0.6s;
+}
+
+.hurufetahajji{
+  /* background: var(--tahjjiback); */
+  width: auto;
+  top: 0;
+  margin: 20px auto;
+  box-shadow: 0 .4rem 1.5rem rgba(0,0,0,.5);
+  padding: 40px 40px 40px 40px;
+  display: grid;
+  grid-template-columns: repeat(5, minmax(auto, 250px));
+  align-items: center;
+  justify-content: center;
+    /* grid-template-rows: repeat(4, 45px); */
+  /* grid-template-row: repeat(4,minmax(177px,177px,177px,177px)); */
+
+  grid-gap: 20px;
+  text-align: center;
+  /* grid-auto-rows: 1.58; */
+  /* justify-content:  space-between;*/
+  border: 2px solid var(--sec-color);
+
+}
+#image1{
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-image: url("../images/makhariz/5zeem.png");
+  background-repeat: no-repeat;
+  background-size: auto;
+  background-size:  cover;
+  object-fit: contain;
+  /* width: 150px;
+  height: 150px; */
+  /* transform: rotate(0deg); */
+  transition: all ease 0.9s;
+}
+
+.thstyle:hover #image1{
+  font-size: 20px;
+  color:white;
+  width: 150px;
+  height: 150px;
+  transform-origin: top center;
+  /* transform: perspective(800px) rotateY(10deg) translate3d(0px, -50px, 5px); */
+  transform: perspective(800px) scale(1.5) rotate(180deg);
+  box-shadow: 0 .4rem 1.5rem rgba(0,0,0,.5);
+  border-radius: 10%;
+  opacity: 1;
+
+}
+
+#image2{
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-image: url("../images/makhariz/4thaa.png");
+  background-repeat: no-repeat;
+  background-size: auto;
+  background-size:  cover;
+  object-fit: contain;
+  /* width: 150px;
+  height: 150px; */
+  /* transform: rotate(0deg); */
+  transition: all ease 0.9s;
+}
+
+.thstyle:hover #image2{
+  font-size: 20px;
+  color:white;
+  width: 150px;
+  height: 150px;
+  transform-origin: top center;
+  /* transform: perspective(800px) rotateY(10deg) translate3d(0px, -50px, 5px); */
+  transform: perspective(800px) scale(1.5) rotate(180deg);
+  box-shadow: 0 .4rem 1.5rem rgba(0,0,0,.5);
+  border-radius: 10%;
+  opacity: 1;
+
+}
+
+
+#image3{
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-image: url("../images/makhariz/4thaa.png");
+  background-repeat: no-repeat;
+  background-size: auto;
+  background-size:  cover;
+  object-fit: contain;
+  /* width: 150px;
+  height: 150px; */
+  /* transform: rotate(0deg); */
+  transition: all ease 0.9s;
+}
+
+.thstyle:hover #image3{
+  font-size: 20px;
+  color:white;
+  width: 150px;
+  height: 150px;
+  transform-origin: top center;
+  /* transform: perspective(800px) rotateY(10deg) translate3d(0px, -50px, 5px); */
+  transform: perspective(800px) scale(1.5) rotate(180deg);
+  box-shadow: 0 .4rem 1.5rem rgba(0,0,0,.5);
+  border-radius: 10%;
+  opacity: 1;
+
+}
+
+
+#image4{
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-image: url("../images/makhariz/4thaa.png");
+  background-repeat: no-repeat;
+  background-size: auto;
+  background-size:  cover;
+  object-fit: contain;
+  /* width: 150px;
+  height: 150px; */
+  /* transform: rotate(0deg); */
+  transition: all ease 0.9s;
+}
+
+.thstyle:hover #image4{
+  font-size: 20px;
+  color:white;
+  width: 150px;
+  height: 150px;
+  transform-origin: top center;
+  /* transform: perspective(800px) rotateY(10deg) translate3d(0px, -50px, 5px); */
+  transform: perspective(800px) scale(1.5) rotate(180deg);
+  box-shadow: 0 .4rem 1.5rem rgba(0,0,0,.5);
+  border-radius: 10%;
+  opacity: 1;
+
+}
+
+
+#image5{
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-image: url("../images/makhariz/4thaa.png");
+  background-repeat: no-repeat;
+  background-size: auto;
+  background-size:  cover;
+  object-fit: contain;
+  /* width: 150px;
+  height: 150px; */
+  /* transform: rotate(0deg); */
+  transition: all ease 0.9s;
+}
+
+.thstyle:hover #image5{
+  font-size: 20px;
+  color:white;
+  width: 150px;
+  height: 150px;
+  transform-origin: top center;
+  /* transform: perspective(800px) rotateY(10deg) translate3d(0px, -50px, 5px); */
+  transform: perspective(800px) scale(1.5) rotate(180deg);
+  box-shadow: 0 .4rem 1.5rem rgba(0,0,0,.5);
+  border-radius: 10%;
+  opacity: 1;
+
+}
+
+
+#image6{
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-image: url("../images/makhariz/4thaa.png");
+  background-repeat: no-repeat;
+  background-size: auto;
+  background-size:  cover;
+  object-fit: contain;
+  /* width: 150px;
+  height: 150px; */
+  /* transform: rotate(0deg); */
+  transition: all ease 0.9s;
+}
+
+.thstyle:hover #image6{
+  font-size: 20px;
+  color:white;
+  width: 150px;
+  height: 150px;
+  transform-origin: top center;
+  /* transform: perspective(800px) rotateY(10deg) translate3d(0px, -50px, 5px); */
+  transform: perspective(800px) scale(1.5) rotate(180deg);
+  box-shadow: 0 .4rem 1.5rem rgba(0,0,0,.5);
+  border-radius: 10%;
+  opacity: 1;
+
+}
+
+
+#image7{
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-image: url("../images/makhariz/4thaa.png");
+  background-repeat: no-repeat;
+  background-size: auto;
+  background-size:  cover;
+  object-fit: contain;
+  /* width: 150px;
+  height: 150px; */
+  /* transform: rotate(0deg); */
+  transition: all ease 0.9s;
+}
+
+.thstyle:hover #image7{
+  font-size: 20px;
+  color:white;
+  width: 150px;
+  height: 150px;
+  transform-origin: top center;
+  /* transform: perspective(800px) rotateY(10deg) translate3d(0px, -50px, 5px); */
+  transform: perspective(800px) scale(1.5) rotate(180deg);
+  box-shadow: 0 .4rem 1.5rem rgba(0,0,0,.5);
+  border-radius: 10%;
+  opacity: 1;
+
+}
+
+
+#image8{
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-image: url("../images/makhariz/4thaa.png");
+  background-repeat: no-repeat;
+  background-size: auto;
+  background-size:  cover;
+  object-fit: contain;
+  /* width: 150px;
+  height: 150px; */
+  /* transform: rotate(0deg); */
+  transition: all ease 0.9s;
+}
+
+.thstyle:hover #image8{
+  font-size: 20px;
+  color:white;
+  width: 150px;
+  height: 150px;
+  transform-origin: top center;
+  /* transform: perspective(800px) rotateY(10deg) translate3d(0px, -50px, 5px); */
+  transform: perspective(800px) scale(1.5) rotate(180deg);
+  box-shadow: 0 .4rem 1.5rem rgba(0,0,0,.5);
+  border-radius: 10%;
+  opacity: 1;
+
+}
+
+
+#image9{
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-image: url("../images/makhariz/4thaa.png");
+  background-repeat: no-repeat;
+  background-size: auto;
+  background-size:  cover;
+  object-fit: contain;
+  /* width: 150px;
+  height: 150px; */
+  /* transform: rotate(0deg); */
+  transition: all ease 0.9s;
+}
+
+.thstyle:hover #image9{
+  font-size: 20px;
+  color:white;
+  width: 150px;
+  height: 150px;
+  transform-origin: top center;
+  /* transform: perspective(800px) rotateY(10deg) translate3d(0px, -50px, 5px); */
+  transform: perspective(800px) scale(1.5) rotate(180deg);
+  box-shadow: 0 .4rem 1.5rem rgba(0,0,0,.5);
+  border-radius: 10%;
+  opacity: 1;
+
+}
+
+
+#image10{
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-image: url("../images/makhariz/4thaa.png");
+  background-repeat: no-repeat;
+  background-size: auto;
+  background-size:  cover;
+  object-fit: contain;
+  /* width: 150px;
+  height: 150px; */
+  /* transform: rotate(0deg); */
+  transition: all ease 0.9s;
+}
+
+.thstyle:hover #image10{
+  font-size: 20px;
+  color:white;
+  width: 150px;
+  height: 150px;
+  transform-origin: top center;
+  /* transform: perspective(800px) rotateY(10deg) translate3d(0px, -50px, 5px); */
+  transform: perspective(800px) scale(1.5) rotate(180deg);
+  box-shadow: 0 .4rem 1.5rem rgba(0,0,0,.5);
+  border-radius: 10%;
+  opacity: 1;
+
+}
+
+#image11{
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-image: url("../images/makhariz/4thaa.png");
+  background-repeat: no-repeat;
+  background-size: auto;
+  background-size:  cover;
+  object-fit: contain;
+  /* width: 150px;
+  height: 150px; */
+  /* transform: rotate(0deg); */
+  transition: all ease 0.9s;
+}
+
+.thstyle:hover #image11{
+  font-size: 20px;
+  color:white;
+  width: 150px;
+  height: 150px;
+  transform-origin: top center;
+  /* transform: perspective(800px) rotateY(10deg) translate3d(0px, -50px, 5px); */
+  transform: perspective(800px) scale(1.5) rotate(180deg);
+  box-shadow: 0 .4rem 1.5rem rgba(0,0,0,.5);
+  border-radius: 10%;
+  opacity: 1;
+
+}
+
+#image12{
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-image: url("../images/makhariz/4thaa.png");
+  background-repeat: no-repeat;
+  background-size: auto;
+  background-size:  cover;
+  object-fit: contain;
+  /* width: 150px;
+  height: 150px; */
+  /* transform: rotate(0deg); */
+  transition: all ease 0.9s;
+}
+
+.thstyle:hover #image12{
+  font-size: 20px;
+  color:white;
+  width: 150px;
+  height: 150px;
+  transform-origin: top center;
+  /* transform: perspective(800px) rotateY(10deg) translate3d(0px, -50px, 5px); */
+  transform: perspective(800px) scale(1.5) rotate(180deg);
+  box-shadow: 0 .4rem 1.5rem rgba(0,0,0,.5);
+  border-radius: 10%;
+  opacity: 1;
+
+}
+
+#image13{
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-image: url("../images/makhariz/4thaa.png");
+  background-repeat: no-repeat;
+  background-size: auto;
+  background-size:  cover;
+  object-fit: contain;
+  /* width: 150px;
+  height: 150px; */
+  /* transform: rotate(0deg); */
+  transition: all ease 0.9s;
+}
+
+.thstyle:hover #image13{
+  font-size: 20px;
+  color:white;
+  width: 150px;
+  height: 150px;
+  transform-origin: top center;
+  /* transform: perspective(800px) rotateY(10deg) translate3d(0px, -50px, 5px); */
+  transform: perspective(800px) scale(1.5) rotate(180deg);
+  box-shadow: 0 .4rem 1.5rem rgba(0,0,0,.5);
+  border-radius: 10%;
+  opacity: 1;
+
+}
+
+#image14{
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-image: url("../images/makhariz/4thaa.png");
+  background-repeat: no-repeat;
+  background-size: auto;
+  background-size:  cover;
+  object-fit: contain;
+  /* width: 150px;
+  height: 150px; */
+  /* transform: rotate(0deg); */
+  transition: all ease 0.9s;
+}
+
+.thstyle:hover #image14{
+  font-size: 20px;
+  color:white;
+  width: 150px;
+  height: 150px;
+  transform-origin: top center;
+  /* transform: perspective(800px) rotateY(10deg) translate3d(0px, -50px, 5px); */
+  transform: perspective(800px) scale(1.5) rotate(180deg);
+  box-shadow: 0 .4rem 1.5rem rgba(0,0,0,.5);
+  border-radius: 10%;
+  opacity: 1;
+
+}
+
+#image15{
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-image: url("../images/makhariz/4thaa.png");
+  background-repeat: no-repeat;
+  background-size: auto;
+  background-size:  cover;
+  object-fit: contain;
+  /* width: 150px;
+  height: 150px; */
+  /* transform: rotate(0deg); */
+  transition: all ease 0.9s;
+}
+
+.thstyle:hover #image15{
+  font-size: 20px;
+  color:white;
+  width: 150px;
+  height: 150px;
+  transform-origin: top center;
+  /* transform: perspective(800px) rotateY(10deg) translate3d(0px, -50px, 5px); */
+  transform: perspective(800px) scale(1.5) rotate(180deg);
+  box-shadow: 0 .4rem 1.5rem rgba(0,0,0,.5);
+  border-radius: 10%;
+  opacity: 1;
+
+}
+
+#image16{
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-image: url("../images/makhariz/4thaa.png");
+  background-repeat: no-repeat;
+  background-size: auto;
+  background-size:  cover;
+  object-fit: contain;
+  /* width: 150px;
+  height: 150px; */
+  /* transform: rotate(0deg); */
+  transition: all ease 0.9s;
+}
+
+.thstyle:hover #image16{
+  font-size: 20px;
+  color:white;
+  width: 150px;
+  height: 150px;
+  transform-origin: top center;
+  /* transform: perspective(800px) rotateY(10deg) translate3d(0px, -50px, 5px); */
+  transform: perspective(800px) scale(1.5) rotate(180deg);
+  box-shadow: 0 .4rem 1.5rem rgba(0,0,0,.5);
+  border-radius: 10%;
+  opacity: 1;
+
+}
+
+#image17{
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-image: url("../images/makhariz/4thaa.png");
+  background-repeat: no-repeat;
+  background-size: auto;
+  background-size:  cover;
+  object-fit: contain;
+  /* width: 150px;
+  height: 150px; */
+  /* transform: rotate(0deg); */
+  transition: all ease 0.9s;
+}
+
+.thstyle:hover #image17{
+  font-size: 20px;
+  color:white;
+  width: 150px;
+  height: 150px;
+  transform-origin: top center;
+  /* transform: perspective(800px) rotateY(10deg) translate3d(0px, -50px, 5px); */
+  transform: perspective(800px) scale(1.5) rotate(180deg);
+  box-shadow: 0 .4rem 1.5rem rgba(0,0,0,.5);
+  border-radius: 10%;
+  opacity: 1;
+
+}
+
+#image18{
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-image: url("../images/makhariz/4thaa.png");
+  background-repeat: no-repeat;
+  background-size: auto;
+  background-size:  cover;
+  object-fit: contain;
+  /* width: 150px;
+  height: 150px; */
+  /* transform: rotate(0deg); */
+  transition: all ease 0.9s;
+}
+
+.thstyle:hover #image18{
+  font-size: 20px;
+  color:white;
+  width: 150px;
+  height: 150px;
+  transform-origin: top center;
+  /* transform: perspective(800px) rotateY(10deg) translate3d(0px, -50px, 5px); */
+  transform: perspective(800px) scale(1.5) rotate(180deg);
+  box-shadow: 0 .4rem 1.5rem rgba(0,0,0,.5);
+  border-radius: 10%;
+  opacity: 1;
+
+}
+
+#image19{
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-image: url("../images/makhariz/4thaa.png");
+  background-repeat: no-repeat;
+  background-size: auto;
+  background-size:  cover;
+  object-fit: contain;
+  /* width: 150px;
+  height: 150px; */
+  /* transform: rotate(0deg); */
+  transition: all ease 0.9s;
+}
+
+.thstyle:hover #image19{
+  font-size: 20px;
+  color:white;
+  width: 150px;
+  height: 150px;
+  transform-origin: top center;
+  /* transform: perspective(800px) rotateY(10deg) translate3d(0px, -50px, 5px); */
+  transform: perspective(800px) scale(1.5) rotate(180deg);
+  box-shadow: 0 .4rem 1.5rem rgba(0,0,0,.5);
+  border-radius: 10%;
+  opacity: 1;
+
+}
+
+#image20{
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-image: url("../images/makhariz/4thaa.png");
+  background-repeat: no-repeat;
+  background-size: auto;
+  background-size:  cover;
+  object-fit: contain;
+  /* width: 150px;
+  height: 150px; */
+  /* transform: rotate(0deg); */
+  transition: all ease 0.9s;
+}
+
+.thstyle:hover #image20{
+  font-size: 20px;
+  color:white;
+  width: 150px;
+  height: 150px;
+  transform-origin: top center;
+  /* transform: perspective(800px) rotateY(10deg) translate3d(0px, -50px, 5px); */
+  transform: perspective(800px) scale(1.5) rotate(180deg);
+  box-shadow: 0 .4rem 1.5rem rgba(0,0,0,.5);
+  border-radius: 10%;
+  opacity: 1;
+
+}
+
+#image21{
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-image: url("../images/makhariz/4thaa.png");
+  background-repeat: no-repeat;
+  background-size: auto;
+  background-size:  cover;
+  object-fit: contain;
+  /* width: 150px;
+  height: 150px; */
+  /* transform: rotate(0deg); */
+  transition: all ease 0.9s;
+}
+
+.thstyle:hover #image21{
+  font-size: 20px;
+  color:white;
+  width: 150px;
+  height: 150px;
+  transform-origin: top center;
+  /* transform: perspective(800px) rotateY(10deg) translate3d(0px, -50px, 5px); */
+  transform: perspective(800px) scale(1.5) rotate(180deg);
+  box-shadow: 0 .4rem 1.5rem rgba(0,0,0,.5);
+  border-radius: 10%;
+  opacity: 1;
+
+}
+
+#image22{
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-image: url("../images/makhariz/4thaa.png");
+  background-repeat: no-repeat;
+  background-size: auto;
+  background-size:  cover;
+  object-fit: contain;
+  /* width: 150px;
+  height: 150px; */
+  /* transform: rotate(0deg); */
+  transition: all ease 0.9s;
+}
+
+.thstyle:hover #image22{
+  font-size: 20px;
+  color:white;
+  width: 150px;
+  height: 150px;
+  transform-origin: top center;
+  /* transform: perspective(800px) rotateY(10deg) translate3d(0px, -50px, 5px); */
+  transform: perspective(800px) scale(1.5) rotate(180deg);
+  box-shadow: 0 .4rem 1.5rem rgba(0,0,0,.5);
+  border-radius: 10%;
+  opacity: 1;
+
+}
+
+#image23{
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-image: url("../images/makhariz/4thaa.png");
+  background-repeat: no-repeat;
+  background-size: auto;
+  background-size:  cover;
+  object-fit: contain;
+  /* width: 150px;
+  height: 150px; */
+  /* transform: rotate(0deg); */
+  transition: all ease 0.9s;
+}
+
+.thstyle:hover #image23{
+  font-size: 20px;
+  color:white;
+  width: 150px;
+  height: 150px;
+  transform-origin: top center;
+  /* transform: perspective(800px) rotateY(10deg) translate3d(0px, -50px, 5px); */
+  transform: perspective(800px) scale(1.5) rotate(180deg);
+  box-shadow: 0 .4rem 1.5rem rgba(0,0,0,.5);
+  border-radius: 10%;
+  opacity: 1;
+
+}
+
+#image24{
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-image: url("../images/makhariz/4thaa.png");
+  background-repeat: no-repeat;
+  background-size: auto;
+  background-size:  cover;
+  object-fit: contain;
+  /* width: 150px;
+  height: 150px; */
+  /* transform: rotate(0deg); */
+  transition: all ease 0.9s;
+}
+
+.thstyle:hover #image24{
+  font-size: 20px;
+  color:white;
+  width: 150px;
+  height: 150px;
+  transform-origin: top center;
+  /* transform: perspective(800px) rotateY(10deg) translate3d(0px, -50px, 5px); */
+  transform: perspective(800px) scale(1.5) rotate(180deg);
+  box-shadow: 0 .4rem 1.5rem rgba(0,0,0,.5);
+  border-radius: 10%;
+  opacity: 1;
+
+}
+
+#image25{
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-image: url("../images/makhariz/4thaa.png");
+  background-repeat: no-repeat;
+  background-size: auto;
+  background-size:  cover;
+  object-fit: contain;
+  /* width: 150px;
+  height: 150px; */
+  /* transform: rotate(0deg); */
+  transition: all ease 0.9s;
+}
+
+.thstyle:hover #image25{
+  font-size: 20px;
+  color:white;
+  width: 150px;
+  height: 150px;
+  transform-origin: top center;
+  /* transform: perspective(800px) rotateY(10deg) translate3d(0px, -50px, 5px); */
+  transform: perspective(800px) scale(1.5) rotate(180deg);
+  box-shadow: 0 .4rem 1.5rem rgba(0,0,0,.5);
+  border-radius: 10%;
+  opacity: 1;
+
+}
+
+#image26{
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-image: url("../images/makhariz/4thaa.png");
+  background-repeat: no-repeat;
+  background-size: auto;
+  background-size:  cover;
+  object-fit: contain;
+  /* width: 150px;
+  height: 150px; */
+  /* transform: rotate(0deg); */
+  transition: all ease 0.9s;
+}
+
+.thstyle:hover #image26{
+  font-size: 20px;
+  color:white;
+  width: 150px;
+  height: 150px;
+  transform-origin: top center;
+  /* transform: perspective(800px) rotateY(10deg) translate3d(0px, -50px, 5px); */
+  transform: perspective(800px) scale(1.5) rotate(180deg);
+  box-shadow: 0 .4rem 1.5rem rgba(0,0,0,.5);
+  border-radius: 10%;
+  opacity: 1;
+
+}
+
+#image27{
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-image: url("../images/makhariz/4thaa.png");
+  background-repeat: no-repeat;
+  background-size: auto;
+  background-size:  cover;
+  object-fit: contain;
+  /* width: 150px;
+  height: 150px; */
+  /* transform: rotate(0deg); */
+  transition: all ease 0.9s;
+}
+
+.thstyle:hover #image27{
+  font-size: 20px;
+  color:white;
+  width: 150px;
+  height: 150px;
+  transform-origin: top center;
+  /* transform: perspective(800px) rotateY(10deg) translate3d(0px, -50px, 5px); */
+  transform: perspective(800px) scale(1.5) rotate(180deg);
+  box-shadow: 0 .4rem 1.5rem rgba(0,0,0,.5);
+  border-radius: 10%;
+  opacity: 1;
+
+}
+
+#image28{
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-image: url("../images/makhariz/4thaa.png");
+  background-repeat: no-repeat;
+  background-size: auto;
+  background-size:  cover;
+  object-fit: contain;
+  /* width: 150px;
+  height: 150px; */
+  /* transform: rotate(0deg); */
+  transition: all ease 0.9s;
+}
+
+.thstyle:hover #image28{
+  font-size: 20px;
+  color:white;
+  width: 150px;
+  height: 150px;
+  transform-origin: top center;
+  /* transform: perspective(800px) rotateY(10deg) translate3d(0px, -50px, 5px); */
+  transform: perspective(800px) scale(1.5) rotate(180deg);
+  box-shadow: 0 .4rem 1.5rem rgba(0,0,0,.5);
+  border-radius: 10%;
+  opacity: 1;
+
+}
+
+#image29{
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-image: url("../images/makhariz/4thaa.png");
+  background-repeat: no-repeat;
+  background-size: auto;
+  background-size:  cover;
+  object-fit: contain;
+  /* width: 150px;
+  height: 150px; */
+  /* transform: rotate(0deg); */
+  transition: all ease 0.9s;
+}
+
+.thstyle:hover #image29{
+  font-size: 20px;
+  color:white;
+  width: 150px;
+  height: 150px;
+  transform-origin: top center;
+  /* transform: perspective(800px) rotateY(10deg) translate3d(0px, -50px, 5px); */
+  transform: perspective(800px) scale(1.5) rotate(180deg);
+  box-shadow: 0 .4rem 1.5rem rgba(0,0,0,.5);
+  border-radius: 10%;
+  opacity: 1;
+
+}
+
+
+.tahajji1{
+  background-color: var(--tahjji-one);
+  position: relative;
+}
+.tahajji2{
+  background-color: var(--tahjji-two);
+
+}
+.tahajji3{
+    background-color: var(--tahjji-one);
+
+}
+.tahajji4{
+    background-color: var(--tahjji-two);
+
+}
+.tahajji5{
+    background-color: var(--tahjji-one);
+
+}
+.tahajji6{
+  background-color: var(--tahjji-two);
+
+}
+.tahajji7{
+  background-color: var(--tahjji-one);
+
+}
+.tahajji8{
+  background-color: var(--tahjji-two);
+
+}
+.tahajji9{
+  background-color: var(--tahjji-one);
+
+}
+.tahajji10{
+  background-color: var(--tahjji-two);
+}
+.tahajji11{
+  background-color: var(--tahjji-one);
+
+}
+.tahajji12{
+  background-color: var(--tahjji-two);
+
+}
+.tahajji13{
+    background-color: var(--tahjji-one);
+
+}
+.tahajji14{
+    background-color: var(--tahjji-two);
+}
+.tahajji15{
+  background-color: var(--tahjji-one);
+
+}
+.tahajji16{
+  background-color: var(--tahjji-two);
+
+}
+.tahajji17{
+  background-color: var(--tahjji-one);
+
+}
+.tahajji18{
+    background-color: var(--tahjji-two);
+
+}
+.tahajji19{
+  background-color: var(--tahjji-one);
+}
+.tahajji20{
+  background-color: var(--tahjji-two);
+}
+.tahajji21{
+    background-color: var(--tahjji-one);
+
+}
+.tahajji22{
+    background-color: var(--tahjji-two);
+
+}
+.tahajji23{
+    background-color: var(--tahjji-one);
+
+}
+.tahajji24{
+  background-color: var(--tahjji-two);
+
+}
+.tahajji25{
+  background-color: var(--tahjji-one);
+
+}
+.tahajji26{
+    /* background-color: var(--tahjji-two); */
+
+}
+.tahajji27{
+      background-color: var(--tahjji-one);
+}
+.tahajji28{
+  background-color: var(--tahjji-two);
+
+}
+.tahajji29{
+  background-color: var(--tahjji-one);
+
+}
+.tahajji30{
+  background-color: var(--tahjji-two);
+
+}
+.thstyle{
+      border-radius: 10%;
+      box-shadow: 0 0.4rem 0.2rem rgba(0,0,0,.3);
+      color:#1c2e1c;
+      cursor: pointer;
+      transition: all ease 0.2s;
+}
+.thstyle:hover{
+  transform: perspective(800px) scale(1.1);
+  color: red;
+}
+
+#logocontent{
+margin: 0;
+padding: 0;
+color: #111;
+
+}
+#logocontent h2{
+
+  font-size: 1.2em;
+  color: white;
+  border: 2px solid green;
+  padding: 0 3px;
+  display: block;
+  background: white;
+}
+
+#logocontent h2 span{
+  display: table-cell;
+  margin: 0;
+  padding: 0;
+  animation: animate 2s linear infinite;
+}
+#logocontent h2 span:nth-child(1){
+  animation-delay: 0s;
+}
+#logocontent h2 span:nth-child(2){
+  animation-delay: 0.25s;
+}
+#logocontent h2 span:nth-child(3){
+  animation-delay: 0.5s;
+}
+#logocontent h2 span:nth-child(4){
+  animation-delay: 0.75s;
+}
+#logocontent h2 span:nth-child(5){
+  animation-delay: 1s;
+}
+#logocontent h2 span:nth-child(6){
+  animation-delay: 1.25s;
+}
+#logocontent h2 span:nth-child(8){
+  animation-delay: 1.50s;
+}
+#logocontent h2 span:nth-child(10){
+  animation-delay: 1.75s;
+}
+#logocontent h2 span:nth-child(11){
+  animation-delay: 2s;
+}
+#logocontent h2 span:nth-child(12){
+  animation-delay: 2.25s;
+}
+#logocontent h2 span:nth-child(13){
+  animation-delay: 2.50s;
+}
+#logocontent h2 span:nth-child(14){
+  animation-delay: 2.75s;
+}
+#logocontent h2 span:nth-child(15){
+  animation-delay: 3s;
+}
+#logocontent h2 span:nth-child(16){
+  animation-delay: 3.25s;
+}
+#logocontent h2 span:nth-child(17){
+  animation-delay: 3.5s;
+}
+#logocontent h2 span:nth-child(18){
+  animation-delay: 3.75s;
+}
+
+@keyframes animate {
+  0%, 100%{
+      color: white;
+      filter: blur(2px);
+      text-shadow: 0 0 1px #00b3ff,
+                  0 0 2px #00b3ff,
+                  0 0 4px #00b3ff,
+                  0 0 8px #00b3ff,
+                  0 0 16px #00b3ff,
+                  0 0 32px #00b3ff,
+
+  }
+  5%, 95%{
+    color: green;
+    filter: blur(0px);
+    text-shadow: none;
+  }
+
+}
+@-webkit-keyframes animatezoom {
+  from {-webkit-transform: scale(0)}
+  to {-webkit-transform: scale(1)}
+}
+
+@keyframes animatezoom {
+  from {transform: scale(0)}
+  to {transform: scale(1)}
+}
+
+/* Change styles for span and cancel button on extra small screens */
+@media screen and (max-width: 300px) {
+span.psw {
+ display: block;
+ float: none;
+}
+.cancelbtn {
+ width: 100%;
+}
+}
