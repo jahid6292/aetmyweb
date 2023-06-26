@@ -11,7 +11,7 @@
                     var target = document.querySelector('#ComPanel');
                     var team =          "<div class='students'>"+
                                         "<h3 id='memtitle'>"+s[i][4]+"</h3>"+
-                                        "<img class='responsive' src='+s[i][6]+' alt=''>"+
+                                        "<img class='responsive' src='"+s[i][6]+"' alt=''>"+
                                         "<div class='content'>"+
                                         "<h2>"+s[i][2]+"</h2>"+
                                         "<p>"+s[i][5]+"</p>"+
