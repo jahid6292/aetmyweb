@@ -31,7 +31,7 @@
                 var s = data.content;
                 // var d = s.slice(-5);
 
-                console.log(s[1][2]);
+                console.log(s);
                 for(var i=1;i<s.length;i++){
                       var target = document.querySelector('#stPanel');
                       var team =          "<div class='students'>"+
