@@ -31,7 +31,6 @@
                 var s = data.content;
                 // var d = s.slice(-5);
 
-                console.log(s);
                 for(var i=1;i<s.length;i++){
                       var target = document.querySelector('#stPanel');
                       var team =          "<div class='students'>"+
@@ -39,7 +38,7 @@
                                           "<h2>"+s[i][2]+"</h2>"+
                                           "<p>"+s[i][4]+"</p>"+
                                           "<div class='content'>"+
-                                          "<img class='responsive' src='https://jahid6292.github.io/aetmyweb/fezanech/comonavatar1.png' alt=''>"+
+                                          "<img class='responsive' src='"+s[i][5]+"' alt=''>"+
                                           "</div>"+
                                           "</div>";
                     target.insertAdjacentHTML("beforeend", team);
