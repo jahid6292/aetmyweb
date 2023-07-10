@@ -22,7 +22,7 @@ function suchnaboard(){
               headmaster.innerText = s[2][1]+' ,'+s[3][1]+',';
               todaynoticedate.innerText = 'Date: '+e;
               // consoleText(['हिन्‍दी में','तमाम तलबाओं को इंतेजामिया कमेटी की जानिब से अस्‍सलामु अलैयकुम बाद सलाम कि आप सभी तलबाओं को सूचित किया जाता है कि हम समय समय पर आप सभी की परीक्षा आयोजित करवायेंगे जिसकी सूचना इस वेब साईट पर आपको दी जायेगी अत: आपको सूचित किया जाता है कि आप अपनी पढाई का रिविजन कर लेवे क्‍योकि परीक्षा की तिथि व रोल नम्‍बर आपको जल्‍द इस सूचना बोर्ड पर जारी कर दी जावेगीा'],'text',['yellow','white','pink','green']);
-              consoleText(notice,'text',['green','yellow','pink','white']);
+              consoleText(notice,'text',['yellow','white','pink','white']);
                   function consoleText(words, id, colors) {
                      if(colors === undefined) colors =['black'];
                      var visible = true;
