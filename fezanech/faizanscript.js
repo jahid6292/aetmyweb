@@ -5,7 +5,7 @@ function suchnaboard(){
             .then(data => {
               var s = data.content;
               // var d = s.slice(-5);
-              console.log(s)
+              //console.log(s)
               // const e = new Date(s[3][0]).toDateString();
               // new Date().toLocaleString(undefined, {year: 'numeric', month: '2-digit', day: '2-digit', weekday:"long", hour: '2-digit', hour12: false, minute:'2-digit', second:'2-digit'}), // 'Wednesday, 14/06/2023, 13:43:57'
               // new Date().toLocaleDateString('en-US', {year: 'numeric', month: '2-digit', day: '2-digit'}), // 08/19/2020 (month and day with two digits)
@@ -83,7 +83,7 @@ function comettemember(){
               var s = data.content;
               // var d = s.slice(-5);
 
-              console.log(s);
+              //console.log(s);
               for(var i=1;i<s.length;i++){
                     var target = document.querySelector('#ComPanel');
                     var team =          "<div class='students'>"+
@@ -130,7 +130,7 @@ function comettemember(){
               .then(data => {
                 var s = data.content;
                 // var d = s.slice(-5);
-                console.log(s[1][1]);
+                //console.log(s[1][1]);
 
                 for(var i=1;i<s.length;i++){
                       const e = new Date(s[i][1]).toDateString();
