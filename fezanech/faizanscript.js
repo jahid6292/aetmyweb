@@ -1,5 +1,5 @@
-function noticeboard(){
-      // Get the Comettee of Madarsa Details
+function suchnaboard(){
+        // Get the Comettee of Madarsa Details
         fetch('https://script.google.com/macros/s/AKfycbzCAGcyhKG46wZIPmVy4B-RzHy8k5Nb4uzF87Qe_F25117ImRcLaZPLlDCqvMhS-kw/exec')
             .then(res => res.json())
             .then(data => {
@@ -72,8 +72,7 @@ function noticeboard(){
                      }, 400)
                   }
             });
-}
-
+            }
 
 function comettemember(){
         // Get the Comettee of Madarsa Details
