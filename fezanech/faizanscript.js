@@ -49,9 +49,10 @@ function suchnaboard(){
                        }
                        else if(letterCount === words[0].length + 1 && wainting === false )
                        {
+                        var repeation = s[7][1];
                          wainting = true;
                          window.setTimeout(function(){
-                           x = -1;
+                           x = repeation;
                            letterCount += x;
                            wainting = false;
                          }, 10)
