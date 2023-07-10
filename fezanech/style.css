@@ -169,6 +169,46 @@ nav ul li a:hover{
     right:55px;
     font-weight: 600;
 }
+.hidden{
+  opacity: 0;
+}
+.console-container{
+  font-family: 'Metal mania', cursive;
+  font-size: 1em;
+  text-align: justify;
+  display: block;
+  color: yellow;
+  text-indent: 3em;
+  /* margin: auto; */
+  padding: 15px 15px 30px 15px;
+
+}
+.console-underscore{
+  display: inline-block;
+  position: relative;
+  top: -0.14em;
+  left: 10px;
+
+}
+.noticeboard{
+    border: 8px solid #dfa427;
+    box-shadow: 0 0.4rem 1.5rem rgba(0,0,0,.5);
+    height: auto;
+    background-color: black;
+    color: #fff;
+    border-style: double;
+    padding: 10px 5px;
+    padding-bottom: 30px;
+
+}
+.noticeboard h2{
+    text-align: center;
+}
+.noticeboard h5{
+    text-align: right;
+    padding-right: 20px;
+
+}
 @keyframes arrow-animation{
     0%{
         bottom: 70px;
