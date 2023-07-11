@@ -1,3 +1,73 @@
+function rasidnosystem(){
+        const captcha = document.querySelector(".captcha"),
+        reloadBtn = document.querySelector(".reload-btn"),
+        inputField = document.querySelector(".input-area input"),
+        checkBtn = document.querySelector(".check-btn"),
+        statusTxt = document.querySelector(".status-text");
+
+        let allCharacters = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O',
+                           'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z', 'a', 'b', 'c', 'd',
+                           'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's',
+                           't', 'u', 'v', 'w', 'x', 'y', 'z', 0, 1, 2, 3, 4, 5, 6, 7, 8, 9];
+        function getCaptcha(){
+        for (let i = 0; i < 6; i++) {
+          let randomCharacter = allCharacters[Math.floor(Math.random() * allCharacters.length)];
+          captcha.innerText += ` ${randomCharacter}`;
+        }
+        }
+        getCaptcha();
+        reloadBtn.addEventListener("click", ()=>{
+        removeContent();
+        getCaptcha();
+        });
+
+        checkBtn.addEventListener("click", e =>{
+        e.preventDefault();
+        statusTxt.style.display = "block";
+        let inputVal = inputField.value.split('').join(' ');
+        if(inputVal == captcha.innerText){
+        // trying status for recipt
+            fetch('https://script.google.com/macros/s/AKfycbzOCHLWMIXYb9ulMICPQZFVc9YlRj7M1LCcMcr9Czv7-u8rNQadvFApyHWzEZTCaI8v/exec')
+                        .then(res => res.json())
+                        .then(data => {
+                          var s = data.content;
+                          // var d = s.slice(-5);
+                          var recId = document.querySelector('#receiptno').value;
+                          var recStatus = document.querySelector('#receiptstatus');
+
+                          for(var i = 0; i < s.length; i++) {
+
+                              if(s[i][1] == recId) {
+                                  recStatus.innerHTML = '<h4>Your Receipt No.'+s[i][1]+' Amount is: <span style="color:green;">Rs.' +s[i][8]+'/-</span><h6 style="color:green;">आपके द्वारा कटवाई गई रसीद की राशि '+s[i][8]+'/- रूपये हैा</h6><h7 style="color:#5a76fd;">यदि राशि रूपये सही नही हो, तो इस नम्‍बर पर शिकायत दर्ज करावे हेल्‍प लाईन मोबाईल नं <span style="font-size:20px;">'+s[i][9]+'</span></h7></h4>';
+                                  return true;
+                              }
+                          }
+                          recStatus.innerHTML = '<h4>Your Receipt No: <span style="color:red;">'+recId+' is invalid.<h6 style="color:blue;">मेहरबानी करके आप अपना सही रसीद नं. इंद्राज करे</h6></span></h4>';
+                        return false;
+
+                });
+
+          //end for trying recipt no status
+          statusTxt.style.color = "#4db2ec";
+          statusTxt.innerText = "Nice! Please Wait Your Reciept amount is retrive...";
+          setTimeout(()=>{
+            removeContent();
+            getCaptcha();
+          }, 2000);
+
+        }else{
+          statusTxt.style.color = "#ff0000";
+          statusTxt.innerText = "Captcha not matched. Please try again!";
+        }
+        });
+        function removeContent(){
+        inputField.value = "";
+        captcha.innerText = "";
+        statusTxt.style.display = "none";
+        }
+}
+
+
 function suchnaboard(){
         // Get the Comettee of Madarsa Details
         fetch('https://script.google.com/macros/s/AKfycbzCAGcyhKG46wZIPmVy4B-RzHy8k5Nb4uzF87Qe_F25117ImRcLaZPLlDCqvMhS-kw/exec')
