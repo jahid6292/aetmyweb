@@ -232,7 +232,7 @@ function jamaterazasagwarafounder(){
                 //console.log(s[1][1]);
 
                 for(var i=1;i<s.length;i++){
-                      const e = new Date(s[i][1]).toDateString();
+                      const e = new Date(s[i][3]).toDateString();
                       var target = document.querySelector('#stFullDetails');
                       var team =          "<div class='contentfulldetails'>"+
                                           "<table>"+
