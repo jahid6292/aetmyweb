@@ -224,7 +224,7 @@ function comettemember(){
       }
 function jamaterazasagwarafounder(){
           // Get the Student full details of Madarsa fezane Chishtiya
-          fetch('https://script.google.com/macros/s/AKfycbzgDXP3jPv4umoZ0qqx29D4akaCq9ADv1DEpYFdd4vTFCV3MwTMOC0O6sR0PdEy0eFK/exec')
+          fetch('https://script.google.com/macros/s/AKfycbwfTangplqxQ9J35Up8uj-ovtCMz3rlvGFVEIEkL2_6g4Xh2YMYJywcLC2iUCRSl66jCg/exec')
               .then(res => res.json())
               .then(data => {
                 var s = data.content;
@@ -238,9 +238,10 @@ function jamaterazasagwarafounder(){
                                           "<table>"+
                                           "<tr>"+
                                           "<td>"+e+"</td>"+
-                                          "<td>"+s[i][0]+"</td>"+
-                                          "<td>"+s[i][2]+"</td>"+
                                           "<td>"+s[i][3]+"</td>"+
+                                          "<td>"+s[i][0]+"</td>"+
+                                          "<td>"+s[i][1]+"</td>"+
+                                          "<td>"+s[i][2]+"</td>"+
                                           "</tr>"+
                                           "</table>"+
                                           "<div class='studentphoto'>"+
