@@ -192,7 +192,7 @@ function comettemember(){
                 }
               });
       }
-      studentsfulldetails();
+      
       function studentsfulldetails(){
           // Get the Student full details of Madarsa fezane Chishtiya
           fetch('https://script.google.com/macros/s/AKfycbzgDXP3jPv4umoZ0qqx29D4akaCq9ADv1DEpYFdd4vTFCV3MwTMOC0O6sR0PdEy0eFK/exec')
@@ -222,7 +222,35 @@ function comettemember(){
                 }
               });
       }
+function jamaterazasagwarafounder(){
+          // Get the Student full details of Madarsa fezane Chishtiya
+          fetch('https://script.google.com/macros/s/AKfycbzgDXP3jPv4umoZ0qqx29D4akaCq9ADv1DEpYFdd4vTFCV3MwTMOC0O6sR0PdEy0eFK/exec')
+              .then(res => res.json())
+              .then(data => {
+                var s = data.content;
+                // var d = s.slice(-5);
+                //console.log(s[1][1]);
 
+                for(var i=1;i<s.length;i++){
+                      const e = new Date(s[i][1]).toDateString();
+                      var target = document.querySelector('#stFullDetails');
+                      var team =          "<div class='contentfulldetails'>"+
+                                          "<table>"+
+                                          "<tr>"+
+                                          "<td>"+e+"</td>"+
+                                          "<td>"+s[i][0]+"</td>"+
+                                          "<td>"+s[i][2]+"</td>"+
+                                          "<td>"+s[i][3]+"</td>"+
+                                          "</tr>"+
+                                          "</table>"+
+                                          "<div class='studentphoto'>"+
+                                          "<h3>तालिब-ए-ईल्म, फैजाने चिश्चितिया मदरसा, चमनपुरा, डूंगरपुर</h3>"+
+                                          "</div>"+
+                                          "</div>";
+                    target.insertAdjacentHTML("beforeend", team);
+                }
+              });
+      }
 
         // Get the modal
         document.getElementById("loginadmin").addEventListener('click',function(e){
