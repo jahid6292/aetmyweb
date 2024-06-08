@@ -238,6 +238,7 @@ function jamaterazasagwarafounder(){
                                           "<table>"+
                                           "<tr>"+
                                           "<td>"+e+"</td>"+
+                                          "<td>"+s[i][4]+"</td>"+
                                           "<td>"+s[i][0]+"</td>"+
                                           "<td>"+s[i][1]+"</td>"+
                                           "<td>"+s[i][2]+"</td>"+
