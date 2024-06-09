@@ -70,7 +70,7 @@ function rasidnosystem(){
 
 function suchnaboard(){
         // Get the Comettee of Madarsa Details
-        fetch('https://script.google.com/macros/s/AKfycbzCAGcyhKG46wZIPmVy4B-RzHy8k5Nb4uzF87Qe_F25117ImRcLaZPLlDCqvMhS-kw/exec')
+        fetch('https://script.google.com/macros/s/AKfycbzyq6k07X1_sTy9sQ6VPhIzhYX6fZkV6Q0Fx6ZxD8AyHj7OCRghgGzDMxGUhvC4IaumTQ/exec')
             .then(res => res.json())
             .then(data => {
               var s = data.content;
