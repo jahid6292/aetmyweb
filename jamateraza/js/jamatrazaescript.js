@@ -313,7 +313,7 @@ function userfundingmonthwisedetails(){
                                                    '<td id="receiptno">'+s[i][4]+'</td>'+
                                                     '<td id="jmtamount">'+s[i][1]+'</td>'+
                                                     '<td id="recbypartycode">'+s[i][2]+'</td>'+
-                                                   '</tr>'+
+                                                   '</tr>';
                                              
                     target.insertAdjacentHTML("beforeend", team);
                 }
