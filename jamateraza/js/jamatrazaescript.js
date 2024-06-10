@@ -306,21 +306,15 @@ function userfundingmonthwisedetails(){
 
                 for(var i=1;i<s.length;i++){
                       const e = new Date(s[i][3]).toDateString();
-                      var target = document.querySelector('#userdetrails');
-                              var team =          '<table id="usersdatafunding">'+
-                                                  '<tr>'+
-                                                  '<th>Date</th>'+
-                                                  '<th>Reciept No.</th>'+
-                                                  '<th>Amount</th>'+
-                                                  '<th>Recieve By Party Code</th>'+
-                                                   '</tr>'+
+                      var target = document.querySelector('#usersdatafunding');
+                              var team =          
                                                    '<tr>'+
-                                                   '<td id="daterec">2200</td>'+
-                                                   '<td id="receiptno">2100</td>'+
-                                                    '<td id="jmtamount">100</td>'+
-                                                    '<td id="recbypartycode">100</td>'+
+                                                   '<td id="daterec">+e+</td>'+
+                                                   '<td id="receiptno">+s[i][4]+</td>'+
+                                                    '<td id="jmtamount">+s[i][1]+</td>'+
+                                                    '<td id="recbypartycode">+s[i][2]+</td>'+
                                                    '</tr>'+
-                                              '</table>';
+                                             
                     target.insertAdjacentHTML("beforeend", team);
                 }
               });
