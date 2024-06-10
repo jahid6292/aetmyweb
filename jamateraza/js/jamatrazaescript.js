@@ -270,7 +270,7 @@ function jamaterazasagwarafounder(){
               .then(data => {
                 var s = data.content;
                 // var d = s.slice(-5);
-                //console.log(s[1][1]);
+                console.log(s);
 
                 for(var i=1;i<s.length;i++){
                       const e = new Date(s[i][3]).toDateString();
