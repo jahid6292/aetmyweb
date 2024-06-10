@@ -270,7 +270,7 @@ function jamaterazasagwarafounder(){
               .then(data => {
                 var s = data.content;
                 // var d = s.slice(-5);
-                console.log(s);
+                //console.log(s);
 
                 for(var i=1;i<s.length;i++){
                       const e = new Date(s[i][3]).toDateString();
@@ -302,17 +302,17 @@ function userfundingmonthwisedetails(){
               .then(data => {
                 var s = data.content;
                 // var d = s.slice(-5);
-                //console.log(s[1][1]);
+                console.log(s);
 
                 for(var i=1;i<s.length;i++){
                       const e = new Date(s[i][3]).toDateString();
                       var target = document.querySelector('#usersdatafunding');
                               var team =          
                                                    '<tr>'+
-                                                   '<td id="daterec">+e+</td>'+
-                                                   '<td id="receiptno">+s[i][4]+</td>'+
-                                                    '<td id="jmtamount">+s[i][1]+</td>'+
-                                                    '<td id="recbypartycode">+s[i][2]+</td>'+
+                                                   '<td id="daterec">'+e+'</td>'+
+                                                   '<td id="receiptno">'+s[i][4]+'</td>'+
+                                                    '<td id="jmtamount">'+s[i][1]+'</td>'+
+                                                    '<td id="recbypartycode">'+s[i][2]+'</td>'+
                                                    '</tr>'+
                                              
                     target.insertAdjacentHTML("beforeend", team);
