@@ -302,10 +302,11 @@ function userfundingmonthwisedetails(){
               .then(data => {
                 var s = data.content;
                 // var d = s.slice(-5);
-                console.log(s);
-
+                //console.log(s);
+                 var userid = '78692002';
                 for(var i=1;i<s.length;i++){
-                        if(s[i][0]==78692002){
+                           var dbuserid = s[i][0];
+                        if(dbuserid==userid){
                       const e = new Date(s[i][3]).toDateString();
                       var target = document.querySelector('#userdetrails');
                               var team =          '<table id="usersdatafunding">'+
@@ -318,7 +319,11 @@ function userfundingmonthwisedetails(){
                                                       '</table>';
                                                   target.insertAdjacentHTML("beforeend", team);
                         }
+                          return true;
                 }
+                      alert('Not authorise.');
+                              // document.getElementById('preloader').style.display = 'none';
+                              return false;
               });
       }
 
