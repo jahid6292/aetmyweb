@@ -306,7 +306,7 @@ function userfundingmonthwisedetails(){
                  var userid = '78692002';
                 for(var i=1;i<s.length;i++){
                            var dbuserid = s[i][0];
-                        if(dbuserid==userid){
+                        if(userid==dbuserid){
                       const e = new Date(s[i][3]).toDateString();
                       var target = document.querySelector('#userdetrails');
                               var team =          '<table id="usersdatafunding">'+
