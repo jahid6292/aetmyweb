@@ -305,6 +305,7 @@ function userfundingmonthwisedetails(){
                 console.log(s);
 
                 for(var i=1;i<s.length;i++){
+                        if(s[i][0]==78692002){
                       const e = new Date(s[i][3]).toDateString();
                       var target = document.querySelector('#userdetrails');
                               var team =          '<table id="usersdatafunding">'+
@@ -314,8 +315,9 @@ function userfundingmonthwisedetails(){
                                                     '<td id="jmtamount">'+s[i][1]+'</td>'+
                                                     '<td id="recbypartycode">'+s[i][2]+'</td>'+
                                                    '</tr>'+
-                                              '</table>';
-                    target.insertAdjacentHTML("beforeend", team);
+                                                      '</table>';
+                                                  target.insertAdjacentHTML("beforeend", team);
+                        }
                 }
               });
       }
