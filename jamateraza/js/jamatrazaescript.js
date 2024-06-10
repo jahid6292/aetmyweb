@@ -303,7 +303,7 @@ function userfundingmonthwisedetails(){
                 var s = data.content;
                 // var d = s.slice(-5);
                 //console.log(s);
-                 var userid = '78692002';
+                 var userid = 78692001;
                 for(var i=1;i<s.length;i++){
                            var dbuserid = s[i][0];
                         if(userid==dbuserid){
@@ -318,8 +318,9 @@ function userfundingmonthwisedetails(){
                                                    '</tr>'+
                                                       '</table>';
                                                   target.insertAdjacentHTML("beforeend", team);
+                                return true;
                         }
-                          return true;
+                          
                 }
                       alert('Not authorise.');
                               // document.getElementById('preloader').style.display = 'none';
