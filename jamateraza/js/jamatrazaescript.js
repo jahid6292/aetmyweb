@@ -222,6 +222,47 @@ function comettemember(){
                 }
               });
       }
+
+ function googlechartofusers(){
+          // Get the Student full details of Madarsa fezane Chishtiya
+          fetch('https://script.google.com/macros/s/AKfycbwNFdOFHVsI_f3cRwb4Ha3AI--5bdILPCZvwsVZzEnxor2RMvQ1NsqfsM_HQSnpEW8pcg/exec')
+              .then(res => res.json())
+              .then(data => {
+                var s = data.content;
+                // var d = s.slice(-5);
+                // console.log(s[1][5]);
+                var totaltargetbudget = s[1][5];
+                var totalavltbudget = s[1][4];
+                var totalexpbudget = s[1][3];
+                var totalfundrectbudget = s[1][2];
+
+                  //google chart
+                  const xValues = ["Require Budget of the Year, 2024", "Available Budget of the Year, 2024","Expenses of the Year, 2024", "Total Budget Recieve of the Year 2024"];
+                  const yValues = [totaltargetbudget,totalavltbudget,totalexpbudget,totalfundrectbudget];
+                  const barColors = ["gray", "green","red","orange"];
+                  
+                  new Chart("myChart", {
+                    type: "bar",
+                    data: {
+                      labels: xValues,
+                      datasets: [{
+                        backgroundColor: barColors,
+                        data: yValues
+                      }]
+                    },
+                    options: {
+                      legend: {display: false},
+                      title: {
+                        display: true,
+                        text: "Our Target Aim Budget of the Year 2024."
+                      }
+                    }
+                  });
+              
+              });
+      }
+
+
 function jamaterazasagwarafounder(){
           // Get the Student full details of Madarsa fezane Chishtiya
           fetch('https://script.google.com/macros/s/AKfycbwfTangplqxQ9J35Up8uj-ovtCMz3rlvGFVEIEkL2_6g4Xh2YMYJywcLC2iUCRSl66jCg/exec')
