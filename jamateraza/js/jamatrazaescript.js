@@ -294,6 +294,37 @@ function jamaterazasagwarafounder(){
                 }
               });
       }
+// this is user guest details of unding
+function userfundingmonthwisedetails(){
+          // Get the Student full details of Madarsa fezane Chishtiya
+          fetch('https://script.google.com/macros/s/AKfycbwfTangplqxQ9J35Up8uj-ovtCMz3rlvGFVEIEkL2_6g4Xh2YMYJywcLC2iUCRSl66jCg/exec')
+              .then(res => res.json())
+              .then(data => {
+                var s = data.content;
+                // var d = s.slice(-5);
+                //console.log(s[1][1]);
+
+                for(var i=1;i<s.length;i++){
+                      const e = new Date(s[i][3]).toDateString();
+                      var target = document.querySelector('#userdetrails');
+                              var team =          '<table id="usersdatafunding">'+
+                                                  '<tr>'+
+                                                  '<th>Date</th>'+
+                                                  '<th>Reciept No.</th>'+
+                                                  '<th>Amount</th>'+
+                                                  '<th>Recieve By Party Code</th>'+
+                                                   '</tr>'+
+                                                   '<tr>'+
+                                                   '<td id="daterec">2200</td>'+
+                                                   '<td id="receiptno">2100</td>'+
+                                                    '<td id="jmtamount">100</td>'+
+                                                    '<td id="recbypartycode">100</td>'+
+                                                   '</tr>'+
+                                              '</table>';
+                    target.insertAdjacentHTML("beforeend", team);
+                }
+              });
+      }
 
         // Get the modal
         document.getElementById("loginadmin").addEventListener('click',function(e){
