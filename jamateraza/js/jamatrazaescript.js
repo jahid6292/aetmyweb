@@ -327,12 +327,7 @@ function userfundingmonthwisedetails(){
               });
       }
 
-        // Get the modal
-        document.getElementById("loginadmin").addEventListener('click',function(e){
-           e.preventDefault(); // Cancel the native event
-           e.stopPropagation();// Don't bubble/capture the event any further
-           loginfunction();
-      });
+
 
         function loginfunction(){
             // Get the Student full details of Madarsa fezane Chishtiya
