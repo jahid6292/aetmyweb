@@ -295,7 +295,7 @@ function jamaterazasagwarafounder(){
               });
       }
 // this is user guest details of unding
-function userfundingmonthwisedetails(){
+function userfundingmonthwisedetails(useid){
           // Get the Student full details of Madarsa fezane Chishtiya
           fetch('https://script.google.com/macros/s/AKfycbwfTangplqxQ9J35Up8uj-ovtCMz3rlvGFVEIEkL2_6g4Xh2YMYJywcLC2iUCRSl66jCg/exec')
               .then(res => res.json())
@@ -303,7 +303,7 @@ function userfundingmonthwisedetails(){
                 var s = data.content;
                 // var d = s.slice(-5);
                 console.log(s);
-                 var userid = 78692001;
+                 var userid = useid;
                 for(var i=1;i<s.length;i++){
                            var dbuserid = s[i][0];
                         if(userid==dbuserid){
