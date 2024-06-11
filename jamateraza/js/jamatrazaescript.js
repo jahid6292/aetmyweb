@@ -302,7 +302,7 @@ function userfundingmonthwisedetails(){
               .then(data => {
                 var s = data.content;
                 // var d = s.slice(-5);
-                //console.log(s);
+                console.log(s);
                  var userid = 78692001;
                 for(var i=1;i<s.length;i++){
                            var dbuserid = s[i][0];
