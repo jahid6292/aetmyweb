@@ -306,7 +306,7 @@ function userfundingmonthwisedetails(useid){
                  var userid = useid;
                 for(var i=1;i<s.length;i++){
                            var dbuserid = s[i][0];
-                        if(userid==dbuserid){
+                        if(dbuserid==userid){
                       var e = new Date(s[i][3]).toDateString();
                       var target = document.querySelector('#userdetrails');
                               var team =         
@@ -322,7 +322,7 @@ function userfundingmonthwisedetails(useid){
                         }
                           
                 }
-                      alert('Not authorise.');
+                    
                               // document.getElementById('preloader').style.display = 'none';
                               return false;
               });
@@ -358,7 +358,7 @@ function adminfundingmonthwisedetails(useid){
                         }
                           
                 }
-                      alert('Not authorise.');
+                     
                               // document.getElementById('preloader').style.display = 'none';
                               return false;
               });
