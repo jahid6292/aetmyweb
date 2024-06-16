@@ -328,7 +328,39 @@ function userfundingmonthwisedetails(useid){
               });
       }
 
-
+// this is admin user details of funding
+function userfundingmonthwisedetails(useid){
+          // Get the Student full details of Madarsa fezane Chishtiya
+          fetch('https://script.google.com/macros/s/AKfycbwfTangplqxQ9J35Up8uj-ovtCMz3rlvGFVEIEkL2_6g4Xh2YMYJywcLC2iUCRSl66jCg/exec')
+              .then(res => res.json())
+              .then(data => {
+                var s = data.content;
+                // var d = s.slice(-5);
+                console.log(s);
+                 var userid = useid;
+                for(var i=1;i<s.length;i++){
+                           var dbuserid = s[i][2];
+                        if(userid==dbuserid){
+                      var e = new Date(s[i][3]).toDateString();
+                      var target = document.querySelector('#userdetrails');
+                              var team =         
+                                                   '<tr>'+
+                                                   '<td id="daterec">'+e+'</td>'+
+                                                   '<td id="receiptno">'+s[i][4]+'</td>'+
+                                                    '<td id="jmtamount">'+s[i][1]+'</td>'+
+                                                    '<td id="recbypartycode">'+s[i][2]+'</td>'+
+                                                   '</tr>';
+                                                    
+                                                  target.insertAdjacentHTML("beforeend", team);
+                                return true;
+                        }
+                          
+                }
+                      alert('Not authorise.');
+                              // document.getElementById('preloader').style.display = 'none';
+                              return false;
+              });
+      }
 
         function loginfunction(){
             // Get the Student full details of Madarsa fezane Chishtiya
