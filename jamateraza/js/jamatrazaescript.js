@@ -340,7 +340,7 @@ function adminfundingmonthwisedetails(useid){
                  var userid = useid;
                 for(var i=1;i<s.length;i++){
                            var dbuserid = s[i][2];
-                        if(userid==dbuserid){
+                        if(dbuserid==userid){
                       var e = new Date(s[i][3]).toDateString();
                       var target = document.querySelector('#userdetrails');
                               var team =         
@@ -352,7 +352,7 @@ function adminfundingmonthwisedetails(useid){
                                                    '</tr>';
                                                     
                                                   target.insertAdjacentHTML("beforeend", team);
-                               
+                               return true;
                         }
                           
                 }
