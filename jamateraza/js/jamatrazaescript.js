@@ -352,7 +352,7 @@ function adminfundingmonthwisedetails(useid){
                                                    '</tr>';
                                                     
                                                   target.insertAdjacentHTML("beforeend", team);
-                                return true;
+                               
                         }
                           
                 }
