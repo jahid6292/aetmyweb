@@ -329,7 +329,7 @@ function userfundingmonthwisedetails(useid){
       }
 
 // this is admin user details of funding
-function userfundingmonthwisedetails(useid){
+function adminfundingmonthwisedetails(useid){
           // Get the Student full details of Madarsa fezane Chishtiya
           fetch('https://script.google.com/macros/s/AKfycbwfTangplqxQ9J35Up8uj-ovtCMz3rlvGFVEIEkL2_6g4Xh2YMYJywcLC2iUCRSl66jCg/exec')
               .then(res => res.json())
