@@ -424,7 +424,7 @@ function adminfundingmonthwisedetails(useid){
 
         var x = window.matchMedia("(max-width: 720px)")
         // myFunction(x) // Call listener function at run time
-        x.addListener(myFunction) // Attach listener function on state changes
+        //x.addListener(myFunction) // Attach listener function on state changes
 
         document.getElementById('logout').style.display = 'none';
 
