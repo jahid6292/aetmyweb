@@ -348,11 +348,12 @@ function adminfundingmonthwisedetails(useid){
                                                    '<td id="daterec">'+e+'</td>'+
                                                    '<td id="receiptno">'+s[i][4]+'</td>'+
                                                     '<td id="jmtamount">'+s[i][1]+'</td>'+
-                                                    '<td id="recbypartycode">'+s[i][0]+'</td>'+
+                                                    '<td id="recbypartycode">'+s[i][2]+'</td>'+
+                                      '<td >'+s[i][0]+'</td>'+
                                                    '</tr>';
                                                     
                                                   target.insertAdjacentHTML("beforeend", team);
-                               return true;
+                              
                         }
                           
                 }
