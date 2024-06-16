@@ -349,6 +349,7 @@ function adminfundingmonthwisedetails(useid){
                                                    '<td id="receiptno">'+s[i][4]+'</td>'+
                                                     '<td id="jmtamount">'+s[i][1]+'</td>'+
                                                     '<td id="recbypartycode">'+s[i][2]+'</td>'+
+                                      '<td>'+s[i][0]+'</td>'+
                      
                                                    '</tr>';
                                                     
