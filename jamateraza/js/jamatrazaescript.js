@@ -324,7 +324,7 @@ function userfundingmonthwisedetails(useid){
                 }
                     
                               // document.getElementById('preloader').style.display = 'none';
-                              return true;
+                              // return false;
               });
       }
 
