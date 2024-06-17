@@ -340,7 +340,6 @@ function adminfundingmonthwisedetails(useid){
                  var userid = useid;
                 for(var i=1;i<s.length;i++){
                            var dbuserid = s[i][2];
-                        let sum = 0; 
                         if(dbuserid==userid){
                       var e = new Date(s[i][3]).toDateString();
                       var target = document.querySelector('#userdetrails');
@@ -351,7 +350,7 @@ function adminfundingmonthwisedetails(useid){
                                                     '<td class="dpamt" id="jmtamount">'+s[i][1]+'</td>'+
                                                     '<td id="recbypartycode">'+s[i][2]+'</td>'+
                                       '<td>'+s[i][0]+'</td>'+
-                     '<td>'+= s[i][1] +'</td>'+
+                     
                                                    '</tr>';
                                                     
                                                   target.insertAdjacentHTML("beforeend", team);
