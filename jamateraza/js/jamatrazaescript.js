@@ -351,7 +351,7 @@ function adminfundingmonthwisedetails(useid){
                                                     '<td class="dpamt" id="jmtamount">'+s[i][1]+'</td>'+
                                                     '<td id="recbypartycode">'+s[i][2]+'</td>'+
                                       '<td>'+s[i][0]+'</td>'+
-                     '<td>'+ sum += s[i][1]+'</td>'+
+                     '<td>'+= s[i][1] +'</td>'+
                                                    '</tr>';
                                                     
                                                   target.insertAdjacentHTML("beforeend", team);
@@ -361,7 +361,7 @@ function adminfundingmonthwisedetails(useid){
                 }
                      
                               // document.getElementById('preloader').style.display = 'none';
-                              return false;
+                              // return false;
               });
       }
 
