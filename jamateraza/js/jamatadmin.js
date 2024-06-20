@@ -337,7 +337,7 @@ function adminfundingmonthwisedetails(useidofamdin){
                 var s = data.content;
                 // var d = s.slice(-5);
                 console.log(s);
-                 var userid = useid;
+                 var userid = useidofamdin;
                 for(var i=1;i<s.length;i++){
                            var dbuserid = s[i][2];
                         if(dbuserid==userid){
