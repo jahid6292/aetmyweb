@@ -338,10 +338,19 @@ function adminfundingmonthwisedetails(useidofamdin){
                 // var d = s.slice(-5);
                 console.log(s);
                  var userid = useidofamdin;
+
+                 var currmonth = new Date().getMonth();
+                 var curryear = new Date().getFullYear();
+       
                 for(var i=1;i<s.length;i++){
                            var dbuserid = s[i][2];
+                           var month = new Date(s[i][3]).getMonth();
+                      var year = new Date(s[i][3]).getFullYear();
+                    
                         if(dbuserid==userid){
-                      var e = new Date(s[i][3]).toDateString();
+                          if(month==currmonth){
+                          var e = new Date(s[i][3]).toDateString();
+                     
                       var target = document.querySelector('#userdetrails');
                               var team =         
                                                    '<tr>'+
@@ -354,7 +363,7 @@ function adminfundingmonthwisedetails(useidofamdin){
                                                    '</tr>';
                                                     
                                                   target.insertAdjacentHTML("beforeend", team);
-                           
+                                                   }
                         }
                           
                 }
