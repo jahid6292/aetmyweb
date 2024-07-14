@@ -372,7 +372,23 @@ function adminfundingmonthwisedetails(useidofamdin){
                               // return false;
               });
       }
+function fundingdetailsoffund(){
+    
+    
+            // Get the Fundind Details of Jamate Raza Fund
+            fetch('https://script.google.com/macros/s/AKfycby9jNQauS0TIqsYEeDuFJgiYauRbHonQFI_fxO1tJiktfquk2Dlt1bvjfFyO8-dhqRf3w/exec')
+                .then(res => res.json())
+                .then(data => {
 
+    
+                  var s = data.content;
+    
+              
+                                document.getElementById('totalfundingbalance').innerText = s[1][2];
+                                document.getElementById('totalexpensesbalance').innerText = s[1][3];
+                                document.getElementById('totalavailablebalance').innerText = s[1][4];
+                });
+        }
         function loginfunction(){
             // Get the Student full details of Madarsa fezane Chishtiya
             fetch('https://script.google.com/macros/s/AKfycbyVRDHplOuA5Qpsc56erx5zcHsv193LjhWmNcstC-bxmD5kf3PrAJDcNKgVzA6_OOmM/exec')
