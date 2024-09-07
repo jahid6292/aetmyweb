@@ -336,7 +336,7 @@ function adminfundingmonthwisedetails(useidofamdin){
               .then(data => {
                 var s = data.content;
                 // var d = s.slice(-5);
-                console.log(s);
+               // console.log(s);
                  var userid = useidofamdin;
 
                  var currmonth = new Date().getMonth();
