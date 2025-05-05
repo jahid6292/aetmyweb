@@ -145,6 +145,85 @@ function suchnaboard(){
             });
             }
 
+
+function suchnaboardofgulshaneraza(){
+        // Get the Comettee of Madarsa Details
+        fetch('https://script.google.com/macros/s/AKfycbxjBmFqKZyJq-WVTMzxJ49KSZAqak_XST8sAO_uVNN25Zp7JGMDaYto7vULf21xyLq93w/exec')
+            .then(res => res.json())
+            .then(data => {
+              var s = data.content;
+              // var d = s.slice(-5);
+              //console.log(s)
+              // const e = new Date(s[3][0]).toDateString();
+              // new Date().toLocaleString(undefined, {year: 'numeric', month: '2-digit', day: '2-digit', weekday:"long", hour: '2-digit', hour12: false, minute:'2-digit', second:'2-digit'}), // 'Wednesday, 14/06/2023, 13:43:57'
+              // new Date().toLocaleDateString('en-US', {year: 'numeric', month: '2-digit', day: '2-digit'}), // 08/19/2020 (month and day with two digits)
+              // new Date().toLocaleDateString('en-ZA'), // 2020/08/19 (year/month/day) notice the different locale
+              // new Date().toLocaleDateString('en-CA'), // 2020-08-19 (year-month-day) notice the different locale
+              // new Date().toLocaleString("en-US", {timeZone: "America/New_York"}), // 8/19/2020, 9:29:51 AM. (date and time in a specific timezone)
+              // new Date().toLocaleString("en-US", {hour: '2-digit', hour12: false, timeZone: "America/New_York"}),  // 09 (just the hour)
+
+              const e = new Date(s[3][0]).toLocaleDateString()
+
+              var notice = s[1];
+              var headmaster = document.getElementById('headmaster');
+              var todaynoticedate = document.getElementById('noticedate');
+              headmaster.innerText = s[2][1]+' ,'+s[3][1]+',';
+              todaynoticedate.innerText = 'Date: '+e;
+              // consoleText(['हिन्‍दी में','तमाम तलबाओं को इंतेजामिया कमेटी की जानिब से अस्‍सलामु अलैयकुम बाद सलाम कि आप सभी तलबाओं को सूचित किया जाता है कि हम समय समय पर आप सभी की परीक्षा आयोजित करवायेंगे जिसकी सूचना इस वेब साईट पर आपको दी जायेगी अत: आपको सूचित किया जाता है कि आप अपनी पढाई का रिविजन कर लेवे क्‍योकि परीक्षा की तिथि व रोल नम्‍बर आपको जल्‍द इस सूचना बोर्ड पर जारी कर दी जावेगीा'],'text',['white','white','pink','green']);
+              consoleText(notice,'text',['white','white','pink','white']);
+                  function consoleText(words, id, colors) {
+                     if(colors === undefined) colors =['black'];
+                     var visible = true;
+                     var con = document.getElementById('console');
+                     var letterCount = 1;
+                     var x = 1;
+                     var wainting = false;
+                     var target = document.getElementById(id)
+                     target.setAttribute('style','color:'+colors[0])
+                     window.setInterval(function() {
+                       if(letterCount === 0 && wainting=== false){
+                         wainting = true;
+                         target.innerHTML = words[0].substring(0, letterCount)
+                         window.setTimeout(function(){
+                           var usedcolor = colors.shift();
+                           colors.push(usedcolor);
+                           var usedword = words.shift();
+                           words.push(usedword);
+                           x = 1;
+                           target.setAttribute('style','color:'+colors[0])
+                           letterCount += x;
+                           wainting = false;
+                         },3000)
+                       }
+                       else if(letterCount === words[0].length + 1 && wainting === false )
+                       {
+                        var repeation = s[7][1];
+                         wainting = true;
+                         window.setTimeout(function(){
+                           x = repeation;
+                           letterCount += x;
+                           wainting = false;
+                         }, 10)
+                       }else if(wainting === false){
+                         target.innerHTML = words[0].substring(0, letterCount)
+                         letterCount += x;
+                       }
+                     }, 120)
+                     window.setInterval(function(){
+                        if(visible === true){
+                          con.className = 'console-underscore hidden'
+                          visible = true;
+                        }else
+                        {
+                          con.className = 'console-underscore'
+                          visible = true;
+                        }
+                     }, 400)
+                  }
+            });
+            }
+
+
 function comettemember(){
         // Get the Comettee of Madarsa Details
         fetch('https://script.google.com/macros/s/AKfycbz1IpoOqWdvhgvanI8_koPPtfRWmQ8GgrXS6OBbyTPSmHDyFW1NWXwkZtElj29feVUN/exec')
