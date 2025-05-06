@@ -266,6 +266,7 @@ function comettememberofgulshaneraza(){
                                         "<img class='responsive' src='"+s[i][6]+"' alt=''>"+
                                         "<div class='content'>"+
                                         "<h2>"+s[i][2]+"</h2>"+
+                                        "<h2>"+s[i][12]+"</h2>"+
                                         "<p>"+s[i][5]+"</p>"+
                                         "</div>"+
                                         "</div>";
