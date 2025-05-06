@@ -249,6 +249,33 @@ function comettemember(){
 
             });
       }
+
+function comettememberofgulshaneraza(){
+        // Get the Comettee of Madarsa Details
+        fetch('https://script.google.com/macros/s/AKfycbxIO3bpq1GlUfnPOv81B0Z-qpXT2k2N0Ai7qVhDO-5BC14IJuckHsTXQh68esff-4SZBw/exec')
+            .then(res => res.json())
+            .then(data => {
+              var s = data.content;
+              // var d = s.slice(-5);
+
+              //console.log(s);
+              for(var i=1;i<s.length;i++){
+                    var target = document.querySelector('#ComPanel');
+                    var team =          "<div class='students'>"+
+                                        "<h3 id='memtitle'>"+s[i][4]+"</h3>"+
+                                        "<img class='responsive' src='"+s[i][6]+"' alt=''>"+
+                                        "<div class='content'>"+
+                                        "<h2>"+s[i][2]+"</h2>"+
+                                        "<p>"+s[i][5]+"</p>"+
+                                        "</div>"+
+                                        "</div>";
+                  target.insertAdjacentHTML("beforeend", team);
+
+              }
+
+            });
+      }
+
       function studentsdetails(){
           // Get the Student of Madarsa Details
           fetch('https://script.google.com/macros/s/AKfycbzgDXP3jPv4umoZ0qqx29D4akaCq9ADv1DEpYFdd4vTFCV3MwTMOC0O6sR0PdEy0eFK/exec')
