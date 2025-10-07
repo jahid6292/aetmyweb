@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="ur">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>نماز کے اوقات</title>
+  <style>
+    body {
+      font-family: sans-serif;
+      margin: 0;
+      padding: 20px;
+      background: #f0f0f0;
+      color: #111;
+      transition: background 0.5s, color 0.5s;
+    }
+    .dark-mode {
+      background: #121212;
+      color: white;
+    }
+    .container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 2rem;
+      margin-top: 20px;
+    }
+    .box {
+      background: white;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+      min-width: 280px;
+      max-width: 320px;
+    }
+    .dark-mode .box {
+      background: #1e1e1e;
+    }
+    h1 {
+      text-align: center;
+      color: #007a3d;
+    }
+    table {
+      border-collapse: collapse;
+      width: 100%;
+    }
+    th, td {
+      padding: 8px;
+      border: 1px solid #ccc;
+    }
+    th {
+      background: #007a3d;
+      color: white;
+    }
+    .clock {
+      position: relative;
+      width: 200px;
+      height: 200px;
+      border: 5px solid #007a3d;
+      border-radius: 50%;
+      margin: auto;
+    }
+    .hand {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform-origin: 0% 50%;
+    }
+    .hour { width: 50px; height: 4px; background: #222; }
+    .minute { width: 70px; height: 3px; background: #555; }
+    .second { width: 90px; height: 2px; background: red; }
+    .center {
+      position: absolute;
+      width: 10px;
+      height: 10px;
+      background: #222;
+      border-radius: 50%;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+    }
+    .number {
+      position: absolute;
+      width: 20px;
+      height: 20px;
+      text-align: center;
+      font-weight: bold;
+      color: #007a3d;
+      transform: translate(-50%, -50%);
+    }
+    .brand-name {
+      position: absolute;
+      top: 48%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      font-size: 0.8rem;
+      color: #007a3d;
+      font-weight: bold;
+      pointer-events: none;
+    }
+    .digital-clock {
+      margin-top: 15px;
+      font-size: 2rem;
+      background: black;
+      color: red;
+      padding: 12px 18px;
+      border-radius: 10px;
+      text-align: center;
+      font-family: 'Courier New', Courier, monospace;
+      letter-spacing: 5px;
+      box-shadow: 0 0 15px red;
+    }
+    .dark-mode .digital-clock {
+      background: black;
+      color: red;
+    }
+    button {
+      padding: 8px 14px;
+      margin: 0 5px;
+      border: none;
+      border-radius: 4px;
+      background: #007a3d;
+      color: white;
+      cursor: pointer;
+    }
+    .toggle-buttons {
+      text-align: center;
+      margin-top: 10px;
+    }
+    #status, #location, #qibla {
+      font-weight: bold;
+      margin-top: 10px;
+    }
+.clock {
+  position: relative;
+  width: 200px;
+  height: 200px;
+  border: 5px solid #007a3d;
+  border-radius: 50%;
+  margin: auto;
+}
+
+.numbers {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 100%;
+  height: 100%;
+  transform: translate(-55%, -55%);
+}
+
+.numbers .num {
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  text-align: center;
+  line-height: 20px;
+  font-weight: bold;
+  color: #007a3d;
+  top: 50%;
+  left: 50%;
+  transform-origin: center -80px; /* 80px radius */
+}
+
+/* Position numbers using rotate and translate */
+.n1  { transform: rotate(30deg)  translate(0, -90px) rotate(-30deg); }
+.n2  { transform: rotate(60deg)  translate(0, -90px) rotate(-60deg); }
+.n3  { transform: rotate(90deg)  translate(0, -90px) rotate(-90deg); }
+.n4  { transform: rotate(120deg) translate(0, -90px) rotate(-120deg); }
+.n5  { transform: rotate(150deg) translate(0, -90px) rotate(-150deg); }
+.n6  { transform: rotate(180deg) translate(0, -90px) rotate(-180deg); }
+.n7  { transform: rotate(210deg) translate(0, -90px) rotate(-210deg); }
+.n8  { transform: rotate(240deg) translate(0, -90px) rotate(-240deg); }
+.n9  { transform: rotate(270deg) translate(0, -90px) rotate(-270deg); }
+.n10 { transform: rotate(300deg) translate(0, -90px) rotate(-300deg); }
+.n11 { transform: rotate(330deg) translate(0, -90px) rotate(-330deg); }
+.n12 { transform: rotate(0deg)   translate(0, -90px) rotate(0deg); }
+  </style>
+</head>
+<body>
+  <h1>🕌 نماز کے اوقات</h1>
+
+  <div class="toggle-buttons">
+    <button onclick="toggleTimeFormat()">🕒 وقت کی شکل بدلیں</button>
+    <button onclick="toggleDarkMode()">🌗 ڈارک / لائٹ موڈ</button>
+  </div>
+
+  <div class="container">
+    <div class="box">
+      <p id="location">📍 مقام: ...</p>
+      <p id="qibla">🧭 قبلہ رخ: ...</p>
+      <table>
+        <thead><tr><th>نماز</th><th>وقت</th></tr></thead>
+        <tbody id="times"><tr><td colspan="2">لوڈ ہو رہا ہے...</td></tr></tbody>
+      </table>
+      <p id="status">🕰️ موجودہ وقت: ...</p>
+    </div>
+
+    <div class="box">
+      <div class="clock" id="analog-clock">
+        <div class="brand-name">Lakhara Samaj</div>
+        <div class="hand hour" id="hour"></div>
+        <div class="hand minute" id="minute"></div>
+        <div class="hand second" id="second"></div>
+        <div class="center"></div>
+         <!-- Clock Numbers Here -->
+          <div class="numbers">
+  <span class="num n1">1</span>
+  <span class="num n2">2</span>
+  <span class="num n3">3</span>
+  <span class="num n4">4</span>
+  <span class="num n5">5</span>
+  <span class="num n6">6</span>
+  <span class="num n7">7</span>
+  <span class="num n8">8</span>
+  <span class="num n9">9</span>
+  <span class="num n10">10</span>
+  <span class="num n11">11</span>
+  <span class="num n12">12</span>
+  </div>
+      </div>
+      <p id="digital-clock" class="digital-clock">00:00:00</p>
+    </div>
+  </div>
+  </body>
+</html>
