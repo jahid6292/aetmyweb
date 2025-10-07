@@ -87,17 +87,116 @@ tbody tr.hide td img{width:0;height:0;transition:.2s ease-in-out .5s;}
 </tr>
 </thead>
 <tbody>
-       <tr>
-                        <th> Id <span class="icon-arrow">&UpArrow;</span></th>
-                        <th> Customer <span class="icon-arrow">&UpArrow;</span></th>
-                        <th> Location <span class="icon-arrow">&UpArrow;</span></th>
-                        <th> Order Date <span class="icon-arrow">&UpArrow;</span></th>
-                        <th> Status <span class="icon-arrow">&UpArrow;</span></th>
-                        <th> Amount <span class="icon-arrow">&UpArrow;</span></th>
-                    </tr>
+
 </tbody>
 </table>
 </section>
 </main>
+       <script>
+// DYNAMIC DATA
+const orders=[
+{id:1, customer:"Zinzu Chan Lee", image:"images/Zinzu Chan Lee.jpg", location:"Seoul", orderDate:"17 Dec, 2022", status:"Delivered", amount:"$128.90"},
+{id:2, customer:"Jeet Saru", image:"images/Jeet Saru.jpg", location:"Kathmandu", orderDate:"27 Aug, 2023", status:"Cancelled", amount:"$5350.50"},
+{id:3, customer:"Sonal Gharti", image:"images/Sonal Gharti.jpg", location:"Tokyo", orderDate:"14 Mar, 2023", status:"Shipped", amount:"$210.40"}
+];
+const tbody=document.querySelector('tbody');
+function generateRows(){
+    tbody.innerHTML='';
+    orders.forEach((order,i)=>{
+        const tr=document.createElement('tr');
+        tr.style.setProperty('--delay',i/25+'s');
+        tr.innerHTML=`
+        <td>${order.id}</td>
+        <td><img src="${order.image}" alt=""> ${order.customer}</td>
+        <td>${order.location}</td>
+        <td>${order.orderDate}</td>
+        <td><p class="status ${order.status.toLowerCase()}">${order.status}</p></td>
+        <td><strong>${order.amount}</strong></td>`;
+        tbody.appendChild(tr);
+    });
+}
+generateRows();
+
+// SEARCH animation
+const search=document.querySelector('.input-group input');
+search.addEventListener('input',()=>{
+    const val=search.value.toLowerCase();
+    const rows=document.querySelectorAll('tbody tr');
+    rows.forEach((row,i)=>{
+        const text=row.textContent.toLowerCase();
+        row.classList.toggle('hide', !text.includes(val));
+        row.style.setProperty('--delay',i/25+'s');
+    });
+});
+
+// SORT
+document.querySelectorAll('thead th').forEach((th,i)=>{
+    let asc=true;
+    th.addEventListener('click',()=>{
+        const rows=[...tbody.querySelectorAll('tr')];
+        rows.sort((a,b)=>{
+            const aText=a.querySelectorAll('td')[i].textContent.toLowerCase();
+            const bText=b.querySelectorAll('td')[i].textContent.toLowerCase();
+            return asc ? aText.localeCompare(bText) : bText.localeCompare(aText);
+        });
+        rows.forEach(r=>tbody.appendChild(r));
+        asc=!asc;
+    });
+});
+
+// PDF Export using jsPDF + html2canvas
+document.querySelector('#toPDF').onclick=async()=>{
+    const { jsPDF } = window.jspdf;
+    const doc=new jsPDF('p','pt','a4');
+    const table=document.querySelector('main.table');
+    const canvas=await html2canvas(table, {scale:2});
+    const imgData=canvas.toDataURL('image/png');
+    const imgProps=doc.getImageProperties(imgData);
+    const pdfWidth=doc.internal.pageSize.getWidth();
+    const pdfHeight=(imgProps.height*pdfWidth)/imgProps.width;
+    doc.addImage(imgData,'PNG',0,0,pdfWidth,pdfHeight);
+    doc.save("customers.pdf");
+};
+
+// JSON Export
+document.querySelector('#toJSON').onclick=()=>{
+    const heads=[...document.querySelectorAll('thead th')].map(th=>th.textContent.trim());
+    const data=[...document.querySelectorAll('tbody tr')].map(tr=>{
+        const obj={};
+        tr.querySelectorAll('td').forEach((td,i)=>obj[heads[i]]=td.textContent.trim());
+        return obj;
+    });
+    const a=document.createElement('a');
+    a.href='data:application/json;charset=utf-8,'+encodeURIComponent(JSON.stringify(data,null,2));
+    a.download='customers.json';
+    document.body.appendChild(a);a.click();a.remove();
+};
+
+// CSV Export
+document.querySelector('#toCSV').onclick=()=>{
+    const heads=[...document.querySelectorAll('thead th')].map(th=>th.textContent.trim()).join(',');
+    const rows=[...document.querySelectorAll('tbody tr')].map(tr=>{
+        return [...tr.querySelectorAll('td')].map(td=>td.textContent.trim().replace(/,/g,'.')).join(',');
+    }).join('\n');
+    const a=document.createElement('a');
+    a.href='data:text/csv;charset=utf-8,'+encodeURIComponent(heads+'\n'+rows);
+    a.download='customers.csv';
+    document.body.appendChild(a);a.click();a.remove();
+};
+
+// Excel Export using SheetJS
+document.querySelector('#toEXCEL').onclick=()=>{
+    const ws_data=[];
+    const headers=[...document.querySelectorAll('thead th')].map(th=>th.textContent.trim());
+    ws_data.push(headers);
+    document.querySelectorAll('tbody tr').forEach(tr=>{
+        ws_data.push([...tr.querySelectorAll('td')].map(td=>td.textContent.trim()));
+    });
+    const ws=XLSX.utils.aoa_to_sheet(ws_data);
+    const wb=XLSX.utils.book_new();
+    XLSX.utils.book_append_sheet(wb,ws,"Customers");
+    XLSX.writeFile(wb,"customers.xlsx");
+};
+</script>
 </body>
 </html>
