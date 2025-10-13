@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>लखारा समाज सहयोग</title>
+<style>
+body{
+  font-family:'Poppins',sans-serif;
+  background:linear-gradient(135deg,#e0f7e9,#f7fff7);
+  display:flex;justify-content:center;align-items:center;
+  min-height:100vh;margin:0;padding:20px;
+}
+.card{
+  background:#fff;
+  padding:30px;
+  border-radius:20px;
+  box-shadow:0 10px 25px rgba(0,0,0,0.1);
+  max-width:420px;width:100%;
+  text-align:center;
+  transition:transform .3s;
+}
+.card:hover{transform:translateY(-5px);}
+.qr img{
+  width:220px;
+  border-radius:12px;
+  margin:15px 0;
+}
+h2{
+  color:#2e7d32;
+  margin-bottom:10px;
+}
+p{color:#555;margin:0 0 15px;}
+form{
+  display:flex;flex-direction:column;gap:12px;
+}
+input,textarea{
+  padding:10px;border:1px solid #ccc;border-radius:8px;
+  font-size:15px;
+}
+button{
+  background:#2e7d32;color:#fff;border:none;
+  padding:12px;border-radius:8px;font-weight:600;
+  cursor:pointer;transition:.3s;
+}
+button:hover{background:#1b5e20;}
+#msg{color:#00796b;margin-top:10px;font-weight:500;}
+</style>
+</head>
+<body>
+<div class="card">
+  <h2>लखारा समाज सहयोग</h2>
+  <p>नीचे दिए गए QR को स्कैन करके भुगतान करें 👇</p>
+  <div class="qr">
+    <img src="QR.png" alt="QR Code">
+  </div>
+<form id="paymentForm">
+  <label>नाम:</label>
+  <input type="text" id="name" name="name" required>
+
+  <label>राशि:</label>
+  <input type="number" id="amount" name="amount" required>
+
+  <label>UTR नंबर:</label>
+  <input type="text" id="utr" name="utr" required>
+
+  <label>Screenshot:</label>
+  <input type="file" id="screenshot" name="screenshot" accept="image/*" required>
+
+  <button type="submit">भेजें</button>
+</form>
+
+<p id="msg"></p>
+
+</div>
+
+
+
+<script>
+document.getElementById('paymentForm').addEventListener('submit', async (e) => {
+  e.preventDefault();
+
+  const fileInput = document.getElementById('screenshot');
+  const file = fileInput.files[0];
+  if (!file) return alert("कृपया Screenshot अपलोड करें!");
+
+  const reader = new FileReader();
+  reader.onload = async () => {
+    const base64Data = reader.result.split(',')[1]; // remove data:image/png;base64, prefix
+
+    const payload = {
+      name: document.getElementById('name').value,
+      amount: document.getElementById('amount').value,
+      utr: document.getElementById('utr').value,
+      filename: file.name,
+      screenshot: base64Data
+    };
+
+    console.log("Payload ready to send:", payload);
+
+    const res = await fetch("https://script.google.com/macros/s/AKfycbyXYrA6zDVSUkQJA7b2zPxCOmy45Fn1ipi_bR6SItfqJavPNnKTKkoa9SISDMTJMGRTqg/exec", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(payload)
+    });
+
+    const json = await res.json();
+    console.log("Response from server:", json);
+
+    if (json.status === "success") {
+      document.getElementById('msg').innerText = "✅ जानकारी भेज दी गई! लिंक: " + json.fileUrl;
+    } else {
+      document.getElementById('msg').innerText = "⚠️ Error: " + json.message;
+    }
+  };
+  reader.readAsDataURL(file);
+});
+
+</script>
+
+</body>
+</html>
