@@ -97,12 +97,9 @@ document.getElementById('paymentForm').addEventListener('submit', async (e) => {
     };
 
     console.log("Payload ready to send:", payload);
-
-    const res = await fetch("https://script.google.com/macros/s/AKfycbyXYrA6zDVSUkQJA7b2zPxCOmy45Fn1ipi_bR6SItfqJavPNnKTKkoa9SISDMTJMGRTqg/exec", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(payload)
-    });
+const params = new URLSearchParams(payload);
+const res = await fetch("https://script.google.com/macros/s/AKfycbyXYrA6zDVSUkQJA7b2zPxCOmy45Fn1ipi_bR6SItfqJavPNnKTKkoa9SISDMTJMGRTqg/exec?" + params.toString());
+   
 
     const json = await res.json();
     console.log("Response from server:", json);
@@ -120,3 +117,4 @@ document.getElementById('paymentForm').addEventListener('submit', async (e) => {
 
 </body>
 </html>
+
