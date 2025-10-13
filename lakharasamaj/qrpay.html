@@ -8,18 +8,26 @@
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
 
-body {
-  font-family: 'Poppins', sans-serif;
+/* RESET + NO SCROLLBAR INSIDE */
+html, body {
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
   background: linear-gradient(135deg, #c8facc, #f0fff4);
+  font-family: 'Poppins', sans-serif;
+}
+
+/* Wrapper to center container */
+body {
   display: flex;
   justify-content: center;
   align-items: center;
   min-height: 100vh;
-  margin: 0;
+  box-sizing: border-box;
   padding: 20px;
 }
 
-/* Container Layout */
+/* Main container */
 .container {
   max-width: 900px;
   width: 100%;
@@ -28,14 +36,16 @@ body {
   background: #fff;
   border-radius: 25px;
   box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-  overflow: hidden;
+  overflow: hidden; /* prevent internal scroll */
 }
 
+/* Left + Right sections */
 .left, .right {
   padding: 35px 25px;
+  box-sizing: border-box;
 }
 
-/* Left: QR Section */
+/* Left side */
 .left {
   background: linear-gradient(135deg, #e8f5e9, #f1f8e9);
   display: flex;
@@ -109,7 +119,7 @@ body {
   font-size: 15px;
 }
 
-/* Right: Form Section */
+/* Right side */
 .right h3 {
   color: #2e7d32;
   margin-bottom: 10px;
