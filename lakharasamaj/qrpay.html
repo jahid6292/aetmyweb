@@ -54,24 +54,14 @@ button:hover{background:#1b5e20;}
   <div class="qr">
     <img src="QR.png" alt="QR Code">
   </div>
-<form id="paymentForm">
-  <label>नाम:</label>
-  <input type="text" id="name" name="name" required>
-
-  <label>राशि:</label>
-  <input type="number" id="amount" name="amount" required>
-
-  <label>UTR नंबर:</label>
-  <input type="text" id="utr" name="utr" required>
-
-  <label>Screenshot:</label>
-  <input type="file" id="screenshot" name="screenshot" accept="image/*" required>
-
+  <form id="paymentForm">
+  <input type="text" name="name" placeholder="नाम" required><br>
+  <input type="number" name="amount" placeholder="राशि (₹)" required><br>
+  <input type="text" name="utr" placeholder="UTR नंबर" required><br>
+  <input type="file" id="screenshot" accept="image/*" required><br>
   <button type="submit">भेजें</button>
 </form>
-
 <p id="msg"></p>
-
 </div>
 
 
@@ -79,43 +69,42 @@ button:hover{background:#1b5e20;}
 <script>
 document.getElementById('paymentForm').addEventListener('submit', async (e) => {
   e.preventDefault();
+  const msgBox = document.getElementById('msg');
+  msgBox.innerText = "⏳ जानकारी भेजी जा रही है...";
 
   const fileInput = document.getElementById('screenshot');
   const file = fileInput.files[0];
-  if (!file) return alert("कृपया Screenshot अपलोड करें!");
-
   const reader = new FileReader();
-  reader.onload = async () => {
-    const base64Data = reader.result.split(',')[1]; // remove data:image/png;base64, prefix
 
-    const payload = {
-      name: document.getElementById('name').value,
-      amount: document.getElementById('amount').value,
-      utr: document.getElementById('utr').value,
-      filename: file.name,
-      screenshot: base64Data
-    };
+  reader.onloadend = async () => {
+    const base64Image = reader.result;
 
-    console.log("Payload ready to send:", payload);
-const params = new URLSearchParams(payload);
-const res = await fetch("https://script.google.com/macros/s/AKfycbyXYrA6zDVSUkQJA7b2zPxCOmy45Fn1ipi_bR6SItfqJavPNnKTKkoa9SISDMTJMGRTqg/exec" + params.toString());
-   
+    const formData = new URLSearchParams();
+    formData.append('name', e.target.name.value);
+    formData.append('amount', e.target.amount.value);
+    formData.append('utr', e.target.utr.value);
+    formData.append('screenshot', base64Image);
 
-    const json = await res.json();
-    console.log("Response from server:", json);
+    try {
+      const res = await fetch("https://script.google.com/macros/s/AKfycbypNZ2U_LfUbgcVYpZejomBVxGx1GrcLN-EvEJC_PElH0rM1GZ_k1QQ7-2sjUjT7gYd8w/exec", {
+        method: "POST",
+        body: formData,
+      });
 
-    if (json.status === "success") {
-      document.getElementById('msg').innerText = "✅ जानकारी भेज दी गई! लिंक: " + json.fileUrl;
-    } else {
-      document.getElementById('msg').innerText = "⚠️ Error: " + json.message;
+      if (res.ok) {
+        msgBox.innerText = "✅ धन्यवाद! आपकी जानकारी सफलतापूर्वक भेज दी गई।";
+        e.target.reset();
+      } else {
+        msgBox.innerText = "⚠️ सर्वर समस्या! कृपया बाद में प्रयास करें।";
+      }
+    } catch (err) {
+      msgBox.innerText = "⚠️ नेटवर्क त्रुटि: " + err.message;
     }
   };
+
   reader.readAsDataURL(file);
 });
-
 </script>
 
 </body>
 </html>
-
-
