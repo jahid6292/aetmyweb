@@ -4,73 +4,224 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>लखारा समाज सहयोग</title>
+
 <style>
-body{
-  font-family:'Poppins',sans-serif;
-  background:linear-gradient(135deg,#e0f7e9,#f7fff7);
-  display:flex;justify-content:center;align-items:center;
-  min-height:100vh;margin:0;padding:20px;
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
+
+body {
+  font-family: 'Poppins', sans-serif;
+  background: linear-gradient(135deg, #c8facc, #f0fff4);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  margin: 0;
+  padding: 20px;
 }
-.card{
-  background:#fff;
-  padding:30px;
-  border-radius:20px;
-  box-shadow:0 10px 25px rgba(0,0,0,0.1);
-  max-width:420px;width:100%;
-  text-align:center;
-  transition:transform .3s;
+
+/* Container Layout */
+.container {
+  max-width: 900px;
+  width: 100%;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  background: #fff;
+  border-radius: 25px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+  overflow: hidden;
 }
-.card:hover{transform:translateY(-5px);}
-.qr img{
-  width:220px;
-  border-radius:12px;
-  margin:15px 0;
+
+.left, .right {
+  padding: 35px 25px;
 }
-h2{
-  color:#2e7d32;
-  margin-bottom:10px;
+
+/* Left: QR Section */
+.left {
+  background: linear-gradient(135deg, #e8f5e9, #f1f8e9);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  animation: floatCard 4s ease-in-out infinite;
 }
-p{color:#555;margin:0 0 15px;}
-form{
-  display:flex;flex-direction:column;gap:12px;
+@keyframes floatCard {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-6px); }
 }
-input,textarea{
-  padding:10px;border:1px solid #ccc;border-radius:8px;
-  font-size:15px;
+
+.qr {
+  position: relative;
+  margin-bottom: 20px;
 }
-button{
-  background:#2e7d32;color:#fff;border:none;
-  padding:12px;border-radius:8px;font-weight:600;
-  cursor:pointer;transition:.3s;
+.qr::after {
+  content: "";
+  position: absolute;
+  top: 50%; left: 50%;
+  width: 260px; height: 260px;
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  background: radial-gradient(circle, rgba(46,125,50,0.15), transparent 70%);
+  animation: pulse 2s infinite;
 }
-button:hover{background:#1b5e20;}
-#msg{color:#00796b;margin-top:10px;font-weight:500;}
+@keyframes pulse {
+  0% { transform: translate(-50%, -50%) scale(1); opacity: 0.6; }
+  50% { transform: translate(-50%, -50%) scale(1.1); opacity: 0.3; }
+  100% { transform: translate(-50%, -50%) scale(1); opacity: 0.6; }
+}
+.qr img {
+  width: 220px;
+  border-radius: 15px;
+  z-index: 2;
+  position: relative;
+}
+.left h2 {
+  color: #2e7d32;
+  margin-bottom: 8px;
+  font-weight: 600;
+}
+.left p {
+  color: #444;
+  font-size: 15px;
+}
+
+/* How to Pay Steps */
+.steps {
+  margin-top: 25px;
+  text-align: left;
+}
+.step {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 10px;
+}
+.step-icon {
+  background: #2e7d32;
+  color: #fff;
+  width: 28px; height: 28px;
+  display: flex; justify-content: center; align-items: center;
+  border-radius: 50%;
+  font-weight: bold;
+  font-size: 14px;
+}
+.step span {
+  color: #333;
+  font-size: 15px;
+}
+
+/* Right: Form Section */
+.right h3 {
+  color: #2e7d32;
+  margin-bottom: 10px;
+}
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+input, textarea {
+  padding: 11px 13px;
+  border: 1.5px solid #c5e1a5;
+  border-radius: 10px;
+  font-size: 15px;
+  transition: all 0.3s ease;
+}
+input:focus {
+  border-color: #2e7d32;
+  box-shadow: 0 0 6px rgba(46,125,50,0.3);
+  outline: none;
+}
+
+/* Button */
+button {
+  background: linear-gradient(90deg, #2e7d32, #43a047);
+  color: #fff;
+  border: none;
+  padding: 13px;
+  border-radius: 10px;
+  font-weight: 600;
+  font-size: 16px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+button:hover {
+  background: linear-gradient(90deg, #1b5e20, #2e7d32);
+  transform: scale(1.03);
+}
+
+/* Message Box */
+#msg {
+  color: #00796b;
+  margin-top: 10px;
+  font-weight: 500;
+  min-height: 22px;
+}
+
+/* Loading Dots */
+.loading::after {
+  content: "•••";
+  animation: dots 1.5s infinite;
+}
+@keyframes dots {
+  0% { content: "•"; }
+  33% { content: "••"; }
+  66% { content: "•••"; }
+  100% { content: "•"; }
+}
+
+/* Responsive */
+@media(max-width: 760px) {
+  .container {
+    grid-template-columns: 1fr;
+  }
+  .left, .right {
+    padding: 25px;
+  }
+}
 </style>
 </head>
+
 <body>
-<div class="card">
-  <h2>लखारा समाज सहयोग</h2>
-  <p>नीचे दिए गए QR को स्कैन करके भुगतान करें 👇</p>
-  <div class="qr">
-    <img src="QR.png" alt="QR Code">
+<div class="container">
+
+  <!-- Left side -->
+  <div class="left">
+    <h2>लखारा समाज सहयोग</h2>
+    <p>नीचे दिए गए QR को स्कैन करके दान करें 👇</p>
+
+    <div class="qr">
+      <img src="QR.png" alt="QR Code">
+    </div>
+
+    <div class="steps">
+      <div class="step"><div class="step-icon">1</div><span>QR को अपने UPI ऐप से स्कैन करें (जैसे Google Pay, PhonePe)</span></div>
+      <div class="step"><div class="step-icon">2</div><span>राशि दर्ज करें और भुगतान करें</span></div>
+      <div class="step"><div class="step-icon">3</div><span>भुगतान के बाद प्राप्त UTR / ट्रांजैक्शन नंबर कॉपी करें</span></div>
+      <div class="step"><div class="step-icon">4</div><span>नीचे फॉर्म भरें और स्क्रीनशॉट अपलोड करें</span></div>
+    </div>
   </div>
-  <form id="paymentForm">
-  <input type="text" name="name" placeholder="नाम" required><br>
-  <input type="number" name="amount" placeholder="राशि (₹)" required><br>
-  <input type="text" name="utr" placeholder="UTR नंबर" required><br>
-  <input type="file" id="screenshot" accept="image/*" required><br>
-  <button type="submit">भेजें</button>
-</form>
-<p id="msg"></p>
+
+  <!-- Right side -->
+  <div class="right">
+    <h3>भुगतान की जानकारी भेजें</h3>
+    <form id="paymentForm">
+      <input type="text" name="name" placeholder="आपका नाम" required>
+      <input type="number" name="amount" placeholder="राशि (₹)" required>
+      <input type="text" name="utr" placeholder="UTR / Transaction नंबर" required>
+      <input type="file" id="screenshot" accept="image/*" required>
+      <button type="submit">जानकारी भेजें</button>
+    </form>
+    <p id="msg"></p>
+  </div>
+
 </div>
-
-
 
 <script>
 document.getElementById('paymentForm').addEventListener('submit', async (e) => {
   e.preventDefault();
   const msgBox = document.getElementById('msg');
-  msgBox.innerText = "⏳ जानकारी भेजी जा रही है...";
+  msgBox.innerText = "⏳ जानकारी भेजी जा रही है";
+  msgBox.classList.add("loading");
 
   const fileInput = document.getElementById('screenshot');
   const file = fileInput.files[0];
@@ -78,7 +229,6 @@ document.getElementById('paymentForm').addEventListener('submit', async (e) => {
 
   reader.onloadend = async () => {
     const base64Image = reader.result;
-
     const formData = new URLSearchParams();
     formData.append('name', e.target.name.value);
     formData.append('amount', e.target.amount.value);
@@ -91,6 +241,7 @@ document.getElementById('paymentForm').addEventListener('submit', async (e) => {
         body: formData,
       });
 
+      msgBox.classList.remove("loading");
       if (res.ok) {
         msgBox.innerText = "✅ धन्यवाद! आपकी जानकारी सफलतापूर्वक भेज दी गई।";
         e.target.reset();
@@ -98,6 +249,7 @@ document.getElementById('paymentForm').addEventListener('submit', async (e) => {
         msgBox.innerText = "⚠️ सर्वर समस्या! कृपया बाद में प्रयास करें।";
       }
     } catch (err) {
+      msgBox.classList.remove("loading");
       msgBox.innerText = "⚠️ नेटवर्क त्रुटि: " + err.message;
     }
   };
@@ -105,6 +257,5 @@ document.getElementById('paymentForm').addEventListener('submit', async (e) => {
   reader.readAsDataURL(file);
 });
 </script>
-
 </body>
 </html>
