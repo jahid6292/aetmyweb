@@ -8,8 +8,6 @@
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
 
-
-
 /* Main container */
 .container {
   max-width: 900px;
@@ -241,7 +239,7 @@ button:hover {
 
     console.log("Payload ready to send:", payload);
 
-    const res = await fetch("https://script.google.com/macros/s/AKfycbxBtpzho-Okvk8PH1AdoKetYY4d0i6gpHH-ndWQvktIGqZ34JgJEtuKmBK-vElEK6VeoQ/exec", {
+    const res = await fetch("https://script.google.com/macros/s/AKfycbwe-WB4Ob6gOK-qZget-ItwSEcCyLLBiwWJU1MyzK6SyUmGC-9bkdMnshO49bYS2r0JUw/exec", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(payload)
