@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Student Portal (Secure Login)</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+  body {
+    font-family: "Segoe UI", sans-serif;
+    background: linear-gradient(135deg, #e3f2fd, #bbdefb);
+    margin: 0;
+    padding: 0;
+  }
+
+  /* ====== LOGIN MODAL ====== */
+  #loginModal {
+    position: fixed;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    background: rgba(0,0,0,0.4);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+  }
+  #loginBox {
+    background: white;
+    padding: 30px;
+    border-radius: 12px;
+    width: 320px;
+    text-align: center;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+  }
+  #loginBox input {
+    width: 100%;
+    padding: 10px;
+    margin: 8px 0;
+    border: 1px solid #90caf9;
+    border-radius: 8px;
+  }
+  #loginBox button {
+    background: #1976d2;
+    color: white;
+    border: none;
+    padding: 10px;
+    width: 100%;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: 0.3s;
+  }
+  #loginBox button:hover {
+    background: #0d47a1;
+  }
+
+  /* ====== MAIN CONTAINER ====== */
+  .container {
+    max-width: 450px;
+    background: #fff;
+    margin: 40px auto;
+    padding: 25px 30px;
+    border-radius: 15px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.15);
+    display: none; /* Hidden until login */
+  }
+  h2 {
+    text-align: center;
+    color: #1565c0;
+    margin-bottom: 20px;
+  }
+  form, .search-section {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+  input[type="text"], input[type="date"], input[type="file"] {
+    padding: 10px;
+    border: 1px solid #90caf9;
+    border-radius: 8px;
+    font-size: 14px;
+  }
+  button {
+    background: #1976d2;
+    color: #fff;
+    border: none;
+    padding: 12px;
+    border-radius: 8px;
+    font-size: 15px;
+    cursor: pointer;
+    transition: 0.3s;
+  }
+  button:hover {
+    background: #0d47a1;
+  }
+  hr { margin: 25px 0; border: 0; border-top: 2px solid #e3f2fd; }
+
+  #output {
+    margin-top: 20px;
+    background: #e3f2fd;
+    border-radius: 10px;
+    padding: 15px;
+    font-size: 14px;
+  }
+  img {
+    border-radius: 8px;
+    margin-top: 8px;
+  }
+
+  /* Progress bar */
+  #progress {
+    width: 0%;
+    height: 5px;
+    background: #2196f3;
+    border-radius: 5px;
+    transition: width 0.4s ease;
+    margin-top: 8px;
+  }
+  .progress-container {
+    width: 100%;
+    background: #cfe2ff;
+    border-radius: 5px;
+    overflow: hidden;
+    margin-top: 5px;
+  }
+
+  @media (max-width: 600px) {
+    .container { margin: 20px; padding: 20px; }
+    h2 { font-size: 20px; }
+    button { font-size: 14px; padding: 10px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- 🟢 LOGIN MODAL -->
+<div id="loginModal">
+  <div id="loginBox">
+    <h3>🔐 Secure Login</h3>
+    <input type="text" id="username" placeholder="Username" required>
+    <input type="password" id="password" placeholder="Password" required>
+    <button onclick="checkLogin()">Login</button>
+  </div>
+</div>
+
+<!-- 🟢 MAIN PAGE CONTENT -->
+<div class="container" id="mainContent">
+  <h2>Student Portal</h2>
+
+  <form id="uploadForm">
+    <input type="text" id="name" placeholder="Name" required>
+    <input type="text" id="fathername" placeholder="Father Name">
+    <input type="date" id="dob">
+    <input type="text" id="adharno" placeholder="Aadhaar No" required>
+    <input type="text" id="mobile" placeholder="Mobile No">
+    <input type="file" id="photo" accept="image/*">
+    <input type="file" id="pdf" accept="application/pdf">
+    <button type="button" onclick="addData()">➕ Add Data</button>
+    <div class="progress-container"><div id="progress"></div></div>
+  </form>
+
+  <hr>
+
+  <div class="search-section">
+    <input type="text" id="searchAdhar" placeholder="Enter Aadhaar No">
+    <button onclick="searchData()">🔍 Search</button>
+  </div>
+
+  <div id="output"></div>
+</div>
+
+<script>
+const api = "https://script.google.com/macros/s/AKfycbxzwiCoiXbFF_k8DqMu9UK6R_SMBdU4CSjocA94ihXJ8QmLWAuw94S-EjHQyzhhRzLUpA/exec";
+const progressBar = document.getElementById("progress");
+
+/* 🔐 LOGIN SYSTEM */
+async function checkLogin() {
+  const user = document.getElementById("username").value.trim();
+  const pass = document.getElementById("password").value.trim();
+
+  if (!user || !pass) return alert("Enter both username and password!");
+
+  try {
+    const res = await fetch(api, {
+      method: "POST",
+      body: JSON.stringify({ action: "login", username: user, password: pass })
+    });
+    const data = await res.json();
+
+    if (data.success) {
+      document.getElementById("loginModal").style.display = "none";
+      document.getElementById("mainContent").style.display = "block";
+    } else {
+      alert("Invalid credentials! Please try again.");
+    }
+  } catch (err) {
+    alert("Login error: " + err.message);
+  }
+}
+
+/* 🔄 Progress Bar */
+function startProgress() {
+  progressBar.style.width = "10%";
+  setTimeout(() => progressBar.style.width = "60%", 100);
+}
+function endProgress() {
+  progressBar.style.width = "100%";
+  setTimeout(() => progressBar.style.width = "0%", 800);
+}
+
+/* 🟢 Aadhaar Input Mask */
+document.addEventListener("DOMContentLoaded", () => {
+  const adharInput = document.getElementById("adharno");
+  const searchAdharInput = document.getElementById("searchAdhar");
+  const applyMask = input => {
+    input.addEventListener("input", e => {
+      let value = e.target.value.replace(/\D/g, "");
+      if (value.length > 12) value = value.slice(0, 12);
+      const parts = [];
+      for (let i = 0; i < value.length; i += 4) parts.push(value.slice(i, i + 4));
+      e.target.value = parts.join("-");
+    });
+  };
+  if (adharInput) applyMask(adharInput);
+  if (searchAdharInput) applyMask(searchAdharInput);
+});
+
+
+// 🟢 Add Data
+async function addData() {
+  try {
+    startProgress();
+
+    const photo = document.getElementById("photo").files[0];
+    const pdf = document.getElementById("pdf").files[0];
+    const toBase64 = f => new Promise((r, j) => {
+      const reader = new FileReader();
+      reader.onload = () => r(reader.result);
+      reader.onerror = j;
+      reader.readAsDataURL(f);
+    });
+
+    const body = {
+      action: "add",
+      name: document.getElementById("name").value.trim(),
+      fathername: document.getElementById("fathername").value.trim(),
+      dob: document.getElementById("dob").value,
+      adharno: document.getElementById("adharno").value.replace(/\D/g, ""), // mask remove
+      mobile: document.getElementById("mobile").value.trim(),
+      photoBase64: photo ? await toBase64(photo) : "",
+      pdfBase64: pdf ? await toBase64(pdf) : "",
+    };
+
+    const res = await fetch(api, { method: "POST", body: JSON.stringify(body) });
+    const data = await res.json();
+    alert(data.message || data.error);
+
+    // ✅ Reset form after insert
+    document.getElementById("name").value = "";
+    document.getElementById("fathername").value = "";
+    document.getElementById("dob").value = "";
+    document.getElementById("adharno").value = "";
+    document.getElementById("mobile").value = "";
+    document.getElementById("photo").value = "";
+    document.getElementById("pdf").value = "";
+
+  } catch (err) {
+    alert("Error: " + err.message);
+  } finally {
+    endProgress();
+  }
+}
+
+// 🔍 Search Data
+async function searchData() {
+  try {
+    startProgress();
+    const adhar = document.getElementById("searchAdhar").value.replace(/\D/g, "");
+    if (!adhar) return alert("Please enter Aadhaar number!");
+
+    const res = await fetch(api, {
+      method: "POST",
+      body: JSON.stringify({ action: "search", adharno: adhar })
+    });
+    const data = await res.json();
+
+    if (!data.success) return alert(data.error);
+
+    const r = data.record;
+    let dobValue = r.dob;
+    if (dobValue) {
+      const dateObj = new Date(dobValue);
+      dateObj.setDate(dateObj.getDate() + 1);
+      dobValue = dateObj.toISOString().split("T")[0];
+    }
+
+    document.getElementById("output").innerHTML = `
+      <div class="result-card">
+        <p><b>Name:</b> <input id="up_name" value="${r.name}"></p>
+        <p><b>Father:</b> <input id="up_father" value="${r.fathername}"></p>
+        <p><b>DOB:</b> <input type="date" id="up_dob" value="${dobValue}"></p>
+        <p><b>Mobile:</b> <input id="up_mobile" value="${r.mobile}"></p>
+        <img src="${r.photoUrl}" width="100" alt="photo"><br>
+        <a href="${r.pdfUrl}" target="_blank">📄 View PDF</a><br><br>
+        <input type="file" id="newPhoto"><br>
+        <input type="file" id="newPDF"><br><br>
+        <button onclick="updateData('${r.adharno}')">🔁 Update</button>
+        <button onclick="deleteData('${r.adharno}')">🗑️ Delete</button>
+      </div>
+    `;
+  } catch (err) {
+    alert("Error: " + err.message);
+  } finally {
+    endProgress();
+  }
+}
+
+// 🔁 Update Data
+async function updateData(adharno) {
+  try {
+    startProgress();
+    const toBase64 = f => new Promise((r, j) => {
+      const reader = new FileReader();
+      reader.onload = () => r(reader.result);
+      reader.onerror = j;
+      reader.readAsDataURL(f);
+    });
+
+    const photoFile = document.getElementById("newPhoto").files[0];
+    const pdfFile = document.getElementById("newPDF").files[0];
+
+    const body = {
+      action: "update",
+      adharno,
+      name: document.getElementById("up_name").value.trim(),
+      fathername: document.getElementById("up_father").value.trim(),
+      dob: document.getElementById("up_dob").value,
+      mobile: document.getElementById("up_mobile").value.trim(),
+      photoBase64: photoFile ? await toBase64(photoFile) : "",
+      pdfBase64: pdfFile ? await toBase64(pdfFile) : "",
+    };
+
+    const res = await fetch(api, { method: "POST", body: JSON.stringify(body) });
+    const data = await res.json();
+    alert(data.message || data.error);
+
+    // ✅ Clear update form after success
+    document.getElementById("output").innerHTML = "";
+    document.getElementById("searchAdhar").value = "";
+
+  } catch (err) {
+    alert("Error: " + err.message);
+  } finally {
+    endProgress();
+  }
+}
+
+// 🗑️ Delete Data
+async function deleteData(adharno) {
+  if (!confirm("Delete permanently?")) return;
+  try {
+    startProgress();
+    const res = await fetch(api, {
+      method: "POST",
+      body: JSON.stringify({ action: "delete", adharno })
+    });
+    const data = await res.json();
+    alert(data.message || data.error);
+    document.getElementById("output").innerHTML = "";
+    document.getElementById("searchAdhar").value = "";
+  } catch (err) {
+    alert("Error: " + err.message);
+  } finally {
+    endProgress();
+  }
+}
+</script>
+</body>
+</html>
