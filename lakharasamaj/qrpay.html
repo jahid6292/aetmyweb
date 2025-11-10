@@ -227,9 +227,10 @@ document.getElementById('paymentForm').addEventListener('submit', async (e) => {
     formData.append('amount', e.target.amount.value);
     formData.append('utr', e.target.utr.value);
     formData.append('screenshot', base64Image);
-
+// https://script.google.com/macros/s/AKfycbyxnY_nd_AtUxeEmXtbSwGcc1qENGm3wkk5FXbemFiPyYdR4HIJSVdLS4u1mrlEvNPsJA/exec
+    // https://script.google.com/macros/s/AKfycbypNZ2U_LfUbgcVYpZejomBVxGx1GrcLN-EvEJC_PElH0rM1GZ_k1QQ7-2sjUjT7gYd8w/exec
     try {
-      const res = await fetch("https://script.google.com/macros/s/AKfycbypNZ2U_LfUbgcVYpZejomBVxGx1GrcLN-EvEJC_PElH0rM1GZ_k1QQ7-2sjUjT7gYd8w/exec", {
+      const res = await fetch("https://script.google.com/macros/s/AKfycbyxnY_nd_AtUxeEmXtbSwGcc1qENGm3wkk5FXbemFiPyYdR4HIJSVdLS4u1mrlEvNPsJA/exec", {
         method: "POST",
         body: formData,
       });
@@ -258,4 +259,5 @@ window.addEventListener("resize",sendHeight);
 </script>
 </body>
 </html>
+
 
