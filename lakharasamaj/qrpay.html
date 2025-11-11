@@ -1,263 +1,233 @@
 <!DOCTYPE html>
-<html lang="hi">
+<html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>लखारा समाज सहयोग</title>
-
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>💰 Donation Form</title>
 <style>
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
-
-
-
-/* Main container */
+body {
+  font-family: "Segoe UI", sans-serif;
+  background: linear-gradient(135deg, #f0f4ff, #e8ecf8);
+  margin: 0; padding: 20px;
+}
 .container {
-  max-width: 900px;
-  width: 100%;
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  background: #fff;
-  border-radius: 25px;
-  box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-  overflow: hidden; /* prevent internal scroll */
+  max-width: 750px;
+  margin: auto;
+  background: white;
+  padding: 25px;
+  border-radius: 12px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+}
+h2 { text-align: center; color: #007bff; margin-bottom: 10px; }
+p.info { text-align: center; color: #444; font-size: 14px; margin-top: 0; }
+
+.instruction {
+  background: #f8fbff;
+  border-left: 4px solid #007bff;
+  padding: 10px 15px;
+  border-radius: 8px;
+  color: #333;
+  margin: 15px 0;
+  font-size: 14px;
+  line-height: 1.6;
 }
 
-/* Left + Right sections */
-.left, .right {
-  padding: 35px 25px;
-  box-sizing: border-box;
-}
-
-/* Left side */
-.left {
-  background: linear-gradient(135deg, #e8f5e9, #f1f8e9);
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  animation: floatCard 4s ease-in-out infinite;
-}
-@keyframes floatCard {
-  0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(-6px); }
-}
-
-.qr {
-  position: relative;
-  margin-bottom: 20px;
-}
-.qr::after {
-  content: "";
-  position: absolute;
-  top: 50%; left: 50%;
-  width: 260px; height: 260px;
-  border-radius: 50%;
-  transform: translate(-50%, -50%);
-  background: radial-gradient(circle, rgba(46,125,50,0.15), transparent 70%);
-  animation: pulse 2s infinite;
-}
-@keyframes pulse {
-  0% { transform: translate(-50%, -50%) scale(1); opacity: 0.6; }
-  50% { transform: translate(-50%, -50%) scale(1.1); opacity: 0.3; }
-  100% { transform: translate(-50%, -50%) scale(1); opacity: 0.6; }
-}
-.qr img {
-  width: 220px;
-  border-radius: 15px;
-  z-index: 2;
-  position: relative;
-}
-.left h2 {
-  color: #2e7d32;
-  margin-bottom: 8px;
-  font-weight: 600;
-}
-.left p {
-  color: #444;
+form { margin-top: 20px; }
+input, select {
+  width: 100%; padding: 10px; margin: 8px 0;
+  border: 1px solid #ccc; border-radius: 6px;
   font-size: 15px;
 }
+button {
+  background: #007bff; color: white; border: none;
+  padding: 10px 20px; cursor: pointer; border-radius: 6px;
+  font-size: 16px; transition: 0.3s;
+}
+button:hover { background: #0056b3; }
 
-/* How to Pay Steps */
-.steps {
-  margin-top: 25px;
-  text-align: left;
+.progress-bar {
+  display: none;
+  width: 100%; background: #eee; border-radius: 6px;
+  overflow: hidden; margin: 10px 0;
 }
-.step {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  margin-bottom: 10px;
+.progress {
+  height: 8px; width: 0%; background: #007bff; transition: width 0.3s;
 }
-.step-icon {
-  background: #2e7d32;
-  color: #fff;
-  width: 28px; height: 28px;
-  display: flex; justify-content: center; align-items: center;
-  border-radius: 50%;
-  font-weight: bold;
+
+.qr-section {
+  text-align: center; margin: 15px 0;
+}
+.qr-section img {
+  width: 160px; height: 160px; border: 2px solid #007bff; border-radius: 8px;
+}
+.qr-section p { font-size: 14px; color: #333; }
+
+table {
+  width: 100%; margin-top: 25px; border-collapse: collapse; background: white;
+}
+th, td {
+  border: 1px solid #ddd; padding: 10px; text-align: center;
   font-size: 14px;
 }
-.step span {
-  color: #333;
-  font-size: 15px;
+th {
+  background: #007bff; color: white;
+  position: sticky; top: 0;
+}
+img.qr-thumb { width: 50px; height: 50px; border-radius: 6px; }
+
+@media(max-width:600px){
+  th, td { font-size: 13px; padding: 8px; }
+  .qr-section img { width: 120px; height: 120px; }
+}
+.table-wrapper {
+  width: 100%;
+  overflow-x: auto;
+  border-radius: 8px;
 }
 
-/* Right side */
-.right h3 {
-  color: #2e7d32;
-  margin-bottom: 10px;
-}
-form {
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
-}
-input, textarea {
-  padding: 11px 13px;
-  border: 1.5px solid #c5e1a5;
-  border-radius: 10px;
-  font-size: 15px;
-  transition: all 0.3s ease;
-}
-input:focus {
-  border-color: #2e7d32;
-  box-shadow: 0 0 6px rgba(46,125,50,0.3);
-  outline: none;
-}
-
-/* Button */
-button {
-  background: linear-gradient(90deg, #2e7d32, #43a047);
-  color: #fff;
-  border: none;
-  padding: 13px;
-  border-radius: 10px;
-  font-weight: 600;
-  font-size: 16px;
-  cursor: pointer;
-  transition: 0.3s;
-}
-button:hover {
-  background: linear-gradient(90deg, #1b5e20, #2e7d32);
-  transform: scale(1.03);
-}
-
-/* Message Box */
-#msg {
-  color: #00796b;
-  margin-top: 10px;
-  font-weight: 500;
-  min-height: 22px;
-}
-
-/* Loading Dots */
-.loading::after {
-  content: "•••";
-  animation: dots 1.5s infinite;
-}
-@keyframes dots {
-  0% { content: "•"; }
-  33% { content: "••"; }
-  66% { content: "•••"; }
-  100% { content: "•"; }
-}
-
-/* Responsive */
-@media(max-width: 760px) {
-  .container {
-    grid-template-columns: 1fr;
-  }
-  .left, .right {
-    padding: 25px;
-  }
-}
 </style>
 </head>
-
 <body>
 <div class="container">
+  <h2>💰 दान करें (Donate Now)</h2>
+  <p class="info">कृपया नीचे दी गई जानकारी सही-सही भरें और QR स्कैन करके दान भेजें।</p>
 
-  <!-- Left side -->
-  <div class="left">
-    <h2>लखारा समाज सहयोग</h2>
-    <p>नीचे दिए गए QR को स्कैन करके दान करें 👇</p>
-
-    <div class="qr">
-      <img src="QR.png" alt="QR Code">
-    </div>
-
-    <div class="steps">
-      <div class="step"><div class="step-icon">1</div><span>QR को अपने UPI ऐप से स्कैन करें (जैसे Google Pay, PhonePe)</span></div>
-      <div class="step"><div class="step-icon">2</div><span>राशि दर्ज करें और भुगतान करें</span></div>
-      <div class="step"><div class="step-icon">3</div><span>भुगतान के बाद प्राप्त UTR / ट्रांजैक्शन नंबर कॉपी करें</span></div>
-      <div class="step"><div class="step-icon">4</div><span>नीचे फॉर्म भरें और स्क्रीनशॉट अपलोड करें</span></div>
-    </div>
+  <div class="qr-section">
+    <img src="https://jahid6292.github.io/aetmyweb/lakharasamaj/QR.webp" alt="QR Code">
+    <p>📸 नीचे QR स्क्रीनशॉट अपलोड करें (यदि ऑनलाइन भुगतान किया है)</p>
   </div>
 
-  <!-- Right side -->
-  <div class="right">
-    <h3>भुगतान की जानकारी भेजें</h3>
-    <form id="paymentForm">
-      <input type="text" name="name" placeholder="आपका नाम" required>
-      <input type="number" name="amount" placeholder="राशि (₹)" required>
-      <input type="text" name="utr" placeholder="UTR / Transaction नंबर" required>
-      <input type="file" id="screenshot" accept="image/*" required>
-      <button type="submit">जानकारी भेजें</button>
-    </form>
-    <p id="msg"></p>
+  <div class="instruction">
+    🪔 <b>महत्वपूर्ण सूचना:</b><br>
+    आप अपने दान का <b>स्टेटस</b> नीचे देख सकते हैं।  
+    शुरू में यह <b>Pending</b> दिखाई देगा। बैंक स्टेटमेंट से मिलान और रसीद नंबर सत्यापन के बाद  
+    आपका स्टेटस <b style="color:green;">Verified</b> दिखेगा।  
+    इसका अर्थ होगा कि आपका दान सफलतापूर्वक हमारे पास पहुँच गया है 🙏  
+    यदि किसी प्रकार की समस्या आए, तो कृपया हमारे सदस्यों से संपर्क करें।  
+    <br><br>
+    🌸 <i>“अल्लाह आपको और ज़्यादा देने की तौफ़ीक़ और बरकत अता करे।”</i>
   </div>
 
+  <form id="donationForm">
+    <input type="text" name="name" placeholder="पूरा नाम (Full Name)" required>
+    <input type="text" name="mobile" placeholder="मोबाइल नंबर (Mobile Number)" required>
+    <input type="number" name="amount" placeholder="दान राशि ₹ (Amount)" required>
+    <select name="mode" required>
+      <option value="">भुगतान का तरीका चुनें (Select Mode)</option>
+      <option>Cash (नकद)</option>
+      <option>Online (ऑनलाइन)</option>
+    </select>
+    <label>Upload QR Screenshot (optional)</label>
+    <input type="file" id="qrFile" accept="image/*">
+    
+    <div class="progress-bar">
+      <div class="progress" id="progress"></div>
+    </div>
+
+    <button type="submit">🕊️ सबमिट करें (Submit Donation)</button>
+  </form>
+
+  <h3 style="margin-top:30px;">📋 Donation Status / दान की स्थिति</h3>
+<div class="table-wrapper">
+  <table id="donationTable">
+    <thead><tr>
+      <th>तारीख / Date</th>
+      <th>नाम</th>
+      <th>मोबाइल</th>
+      <th>राशि (₹)</th>
+      <th>Mode</th>
+      <th>QR</th>
+      <th>स्थिति (Status)</th>
+    </tr></thead>
+    <tbody></tbody>
+  </table>
 </div>
 
+
+
 <script>
-document.getElementById('paymentForm').addEventListener('submit', async (e) => {
+const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbzGQ-g10KbYVmoo-DZlZSw3pAbfEbT-T-iCRCGFkByxnskI3ClOHiImSZkZZ8bZXz4Z6g/exec";
+
+document.getElementById("donationForm").addEventListener("submit", async (e) => {
   e.preventDefault();
-  const msgBox = document.getElementById('msg');
-  msgBox.innerText = "⏳ जानकारी भेजी जा रही है";
-  msgBox.classList.add("loading");
+  const fd = new FormData(e.target);
+  const file = document.getElementById("qrFile").files[0];
+  const progressBar = document.querySelector(".progress-bar");
+  const progress = document.getElementById("progress");
+  
+  progressBar.style.display = "block";
+  progress.style.width = "10%";
 
-  const fileInput = document.getElementById('screenshot');
-  const file = fileInput.files[0];
-  const reader = new FileReader();
+  let base64 = "";
+  if (file) {
+    base64 = await toBase64(file, progress);
+  }
 
-  reader.onloadend = async () => {
-    const base64Image = reader.result;
-    const formData = new URLSearchParams();
-    formData.append('name', e.target.name.value);
-    formData.append('amount', e.target.amount.value);
-    formData.append('utr', e.target.utr.value);
-    formData.append('screenshot', base64Image);
-// https://script.google.com/macros/s/AKfycbyxnY_nd_AtUxeEmXtbSwGcc1qENGm3wkk5FXbemFiPyYdR4HIJSVdLS4u1mrlEvNPsJA/exec
-    // https://script.google.com/macros/s/AKfycbypNZ2U_LfUbgcVYpZejomBVxGx1GrcLN-EvEJC_PElH0rM1GZ_k1QQ7-2sjUjT7gYd8w/exec
-    try {
-      const res = await fetch("https://script.google.com/macros/s/AKfycbyxnY_nd_AtUxeEmXtbSwGcc1qENGm3wkk5FXbemFiPyYdR4HIJSVdLS4u1mrlEvNPsJA/exec", {
-        method: "POST",
-        body: formData,
-      });
-
-      msgBox.classList.remove("loading");
-      if (res.ok) {
-        msgBox.innerText = "✅ धन्यवाद! आपकी जानकारी सफलतापूर्वक भेज दी गई।";
-        e.target.reset();
-      } else {
-        msgBox.innerText = "⚠️ सर्वर समस्या! कृपया बाद में प्रयास करें।";
-      }
-    } catch (err) {
-      msgBox.classList.remove("loading");
-      msgBox.innerText = "⚠️ नेटवर्क त्रुटि: " + err.message;
-    }
+  const data = {
+    action: "addDonation",
+    name: fd.get("name"),
+    mobile: fd.get("mobile"),
+    amount: fd.get("amount"),
+    mode: fd.get("mode"),
+    qrBase64: base64
   };
 
-  reader.readAsDataURL(file);
+  progress.style.width = "70%";
+
+  await fetch(SCRIPT_URL, {
+    method: "POST",
+    body: JSON.stringify(data),
+  });
+
+  progress.style.width = "100%";
+  setTimeout(()=>{progressBar.style.display="none";},1000);
+
+  alert("🙏 आपका दान सफलतापूर्वक दर्ज हो गया है!");
+  e.target.reset();
+  loadDonations();
 });
 
-function sendHeight(){parent.postMessage({frameHeight:document.body.scrollHeight},"*");}
-window.addEventListener("load",sendHeight);
-window.addEventListener("resize",sendHeight);
+async function loadDonations() {
+  const res = await fetch(SCRIPT_URL, {
+    method: "POST",
+    body: JSON.stringify({ action: "getDonations" }),
+  });
+  const json = await res.json();
+  const tbody = document.querySelector("#donationTable tbody");
+  tbody.innerHTML = "";
+  json.donations.forEach(r => {
+    const tr = document.createElement("tr");
+    tr.innerHTML = `
+      <td>${new Date(r.date).toLocaleString()}</td>
+      <td>${r.name}</td>
+      <td>${r.mobile}</td>
+      <td>₹${r.amount}</td>
+      <td>${r.mode}</td>
+      <td>${r.qrUrl ? `<a href="${r.qrUrl}" target="_blank"><img class="qr-thumb" src="${r.qrUrl}"></a>` : '-'}</td>
+      <td style="color:${r.status=='Verified'?'green':'red'};font-weight:600">${r.status}</td>
+    `;
+    tbody.appendChild(tr);
+  });
+}
 
+function toBase64(file, progress) {
+  return new Promise((res, rej) => {
+    const reader = new FileReader();
+    reader.onloadstart = () => { progress.style.width = "30%"; };
+    reader.onprogress = (e) => {
+      if (e.lengthComputable) {
+        const percent = Math.round((e.loaded / e.total) * 40) + 30;
+        progress.style.width = percent + "%";
+      }
+    };
+    reader.onloadend = () => { progress.style.width = "60%"; };
+    reader.onload = () => res(reader.result);
+    reader.onerror = err => rej(err);
+    reader.readAsDataURL(file);
+  });
+}
 
+loadDonations();
 </script>
 </body>
 </html>
-
-
