@@ -230,12 +230,15 @@ function toBase64(file, progress) {
 loadDonations();
   
 </script>
-  <script>
+<script>
 window.onload = function() {
-  window.parent.postMessage({ height: document.body.scrollHeight }, "*");
+  const height = document.body.scrollHeight;
+  window.parent.postMessage({ frameHeight: height }, "*");
 };
 </script>
 
+
 </body>
 </html>
+
 
