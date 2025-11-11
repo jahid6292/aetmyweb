@@ -231,15 +231,22 @@ loadDonations();
   
 </script>
 <script>
-window.onload = function() {
-  const height = document.body.scrollHeight;
-  window.parent.postMessage({ frameHeight: height }, "*");
-};
+window.addEventListener("load", () => {
+  const sendHeight = () => {
+    const height = document.body.scrollHeight;
+    window.parent.postMessage({ frameHeight: height }, "*");
+  };
+  sendHeight();
+  // अगर कंटेंट बाद में बढ़े (जैसे table लोड होने पर), तो दोबारा height भेजे:
+  setTimeout(sendHeight, 1500);
+});
 </script>
+
 
 
 </body>
 </html>
+
 
 
 
