@@ -228,6 +228,14 @@ function toBase64(file, progress) {
 }
 
 loadDonations();
+  
 </script>
+  <script>
+window.onload = function() {
+  window.parent.postMessage({ height: document.body.scrollHeight }, "*");
+};
+</script>
+
 </body>
 </html>
+
