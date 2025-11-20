@@ -83,6 +83,7 @@ tbody tr.hide td img{width:0;height:0;transition:.2s ease-in-out .5s;}
 <th>पिता का नाम</th>
 <th>मकान संख्‍या</th>
 <th>English Name</th>
+<th>English FaName</th>
 </tr>
 </thead>
 <tbody>
@@ -116,6 +117,7 @@ async function loadData() {
         <td>${row["पिता का नाम"] || ""}</td>
         <td>${row["मकान संख्‍या"] || ""}</td>
         <td>${row["English Name"] || ""}</td>
+        <td>${row["English FaName"] || ""}</td>
       `;
       tbody.appendChild(tr);
     });
